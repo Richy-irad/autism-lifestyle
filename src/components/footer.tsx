@@ -15,7 +15,7 @@ const navigation = [
 
 export default function Footer() {
   return (
-    <footer className="bg-concrete">
+    <footer className="bg-concrete font-josefin-sans">
       <div className="lg:container lg:mx-auto">
         <div className="px-5 lg:px-0 py-6 lg:mx-20">
           <div className="flex gap-x-6 justify-start lg:justify-between mb-10">

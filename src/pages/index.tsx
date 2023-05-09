@@ -1,17 +1,30 @@
+import React, { FC } from "react";
 import Image from "next/image";
-import { Inter } from "next/font/google";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import Link from "next/link";
 import heroImage from "../../public/assets/cdc-20YP7NENJzk-unsplash.jpg";
+import { getAllPackages } from "@/lib/packages";
+import { IndexProps } from "@/lib/types";
 
-const inter = Inter({ subsets: ["latin"] });
+import Service from "@/components/package";
 
-export default function Home() {
+export const getStaticProps = async () => {
+  const packages = getAllPackages();
+
+  return {
+    props: {
+      packages,
+    },
+  };
+};
+
+const Home: FC<IndexProps> = ({ packages }) => {
+  console.log(packages);
   return (
     <>
       <Navbar />
-      <main>
+      <main className="font-josefin-sans">
         {/* hero section */}
         <div className="bg-white">
           <div className="lg:container lg:mx-auto">
@@ -57,7 +70,17 @@ export default function Home() {
                   </p>
                 </div>
               </div>
-              <div className="basis-1/2"></div>
+              <div className="basis-1/2">
+                <div className="basis-1/2 flex flex-col gap-y-12">
+                  {packages.map((service) => (
+                    <Service
+                      key={service.service}
+                      service={service}
+                      background="white"
+                    />
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -65,4 +88,6 @@ export default function Home() {
       <Footer />
     </>
   );
-}
+};
+
+export default Home;

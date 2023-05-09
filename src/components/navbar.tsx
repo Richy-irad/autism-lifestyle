@@ -49,7 +49,7 @@ const CustomLink = ({ children, href }: CustomLinkProps) => {
 
 export default function Navbar() {
   return (
-    <Disclosure as="nav" className="bg-white lg:container lg:mx-auto">
+    <Disclosure as="nav" className="bg-white lg:container lg:mx-auto font-josefin-sans">
       {({ open }) => (
         <>
           <div className="px-5 lg:px-0 py-6 lg:mx-20">
