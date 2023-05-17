@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import Link from "next/link";
 import { GetStaticProps } from "next";
-import { getAllPackagesTitles, getPackage } from "@/lib/packages";
+import { getAllPackagesSlugs, getPackage } from "@/lib/packages";
 import { ServiceProps } from "@/lib/types";
 import { ParsedUrlQuery } from "querystring";
 import Navbar from "@/components/navbar";
@@ -13,7 +13,7 @@ interface IParams extends ParsedUrlQuery {
 
 // getStaticPaths
 export const getStaticPaths = async () => {
-  const paths = getAllPackagesTitles();
+  const paths = getAllPackagesSlugs();
 
   return {
     paths,
@@ -52,7 +52,7 @@ const Service: FC<ServiceProps> = ({ service }): JSX.Element => {
                   <h4 className="text-2xl text-black font-regular">Benefits</h4>
                   <div className="flex flex-col gap-3 flex-wrap">
                     {service.benefits.map((benefit) => (
-                      <p>
+                      <p key={benefit.title}>
                         <span className="font-bold text-secondary">
                           {benefit.title}:{" "}
                         </span>
@@ -66,7 +66,7 @@ const Service: FC<ServiceProps> = ({ service }): JSX.Element => {
             <div className="basis-5/12 flex flex-col gap-y-12 bg-concrete rounded-3xl px-4 py-8">
               <video className="w-full h-auto max-w-full rounded-3xl" controls>
                 <source
-                  src="https://res.cloudinary.com/richy-irad/video/upload/v1683634441/Hashize_iminsi_by_Makanyaga_Abdul_Lyrics-W39QgzSiJLM_jw7tbj.mp4"
+                  src={service.videoDescription}
                   type="video/mp4"
                 />
                 Your browser does not support the video tag.

@@ -21,6 +21,12 @@ module.exports = {
       fontFamily: {
         "josefin-sans": "var(--font-josefin-sans)",
       },
+      borderWidth: {
+        0.5: "0.5px",
+      },
+      padding: {
+        18: "72px",
+      },
     },
   },
   plugins: [],

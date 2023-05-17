@@ -11,10 +11,10 @@ type CustomLinkProps = {
 };
 
 const navigation = [
-  { name: "Home", href: "/", current: true },
-  { name: "Services", href: "/services", current: false },
-  { name: "About", href: "/about", current: false },
-  { name: "Contact", href: "/contact", current: false },
+  { name: "Home", href: "/" },
+  { name: "Services", href: "/services" },
+  { name: "About", href: "/about" },
+  { name: "Contact", href: "/contact" },
 ];
 
 function classNames(...classes: string[]) {
@@ -49,10 +49,10 @@ const CustomLink = ({ children, href }: CustomLinkProps) => {
 
 export default function Navbar() {
   return (
-    <Disclosure as="nav" className="bg-white lg:container lg:mx-auto font-josefin-sans">
+    <Disclosure as="nav" className="bg-white font-josefin-sans">
       {({ open }) => (
         <>
-          <div className="px-5 lg:px-0 py-6 lg:mx-20">
+          <div className="px-5 lg:px-0 py-6 lg:mx-40">
             <div className="flex items-center justify-start gap-2">
               <div className="flex md:hidden">
                 {/* Mobile menu button */}
@@ -67,7 +67,7 @@ export default function Navbar() {
               </div>
               <div className="flex items-center justify-between w-full">
                 <div className="flex-shrink-0">
-                  <Link href="#" className="font-bold text-2xl flex gap-2">
+                  <Link href="/" className="font-bold text-2xl flex gap-2">
                     <span className="text-primary capitalize">autism</span>
                     <span className="text-monte capitalize">lifestyle</span>
                   </Link>
@@ -88,20 +88,9 @@ export default function Navbar() {
           <Disclosure.Panel className="md:hidden">
             <div className="space-y-1 px-2 pb-3 pt-2 sm:px-3 flex flex-col">
               {navigation.map((item) => (
-                <Disclosure.Button
-                  key={item.name}
-                  as="a"
-                  href={item.href}
-                  className={classNames(
-                    item.current
-                      ? "text-primary font-bold"
-                      : "text-dark hover:text-primary font-medium",
-                    "px-4 py-2.5"
-                  )}
-                  aria-current={item.current ? "page" : undefined}
-                >
+                <CustomLink key={item.name} href={item.href}>
                   {item.name}
-                </Disclosure.Button>
+                </CustomLink>
               ))}
             </div>
           </Disclosure.Panel>

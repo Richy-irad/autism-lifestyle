@@ -7,9 +7,16 @@ export type BenefitType = {
 
 export type PackageType = {
   service: string;
+  slug: string;
+  videoDescription: string;
   description: string;
   benefits: BenefitType[];
   price: number;
+};
+
+export type MessageType = {
+  title: string;
+  description: string;
 };
 
 export interface ServiceProps {

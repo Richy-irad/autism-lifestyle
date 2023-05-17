@@ -1,8 +1,8 @@
 import packages from "../packages/packages.json" assert { type: "json" };
 
-// getAllPackagesTitles
-export const getAllPackagesTitles = () => {
-  // loop over the packages and return the titles only
+// getAllPackagesSlugs
+export const getAllPackagesSlugs = () => {
+  // loop over the packages and return the slugs only
 
   return packages.map((service) => {
     return {
@@ -13,11 +13,11 @@ export const getAllPackagesTitles = () => {
   });
 };
 
-// getPackage(title)
+// getPackage(slug)
 export const getPackage = (slug: string | undefined) => {
   const pckg = packages.find((pckg) => pckg.slug === slug);
 
-  //  combine title with package
+  //  combine slug with package
   return {
     slug,
     ...pckg,
