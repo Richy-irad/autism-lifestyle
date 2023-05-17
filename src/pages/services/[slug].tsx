@@ -40,11 +40,10 @@ const Service: FC<ServiceProps> = ({ service }): JSX.Element => {
 
       <main className="font-josefin-sans">
         {/* services section */}
-        <div className="lg:container lg:mx-auto">
-          <div className="flex gap-x-32 items-start lg:px-20 py-20">
-            <div className="basis-6/12">
+          <div className="flex flex-col flex-wrap gap-y-8 gap-x-32 items-start px-5 py:10 lg:py-20 lg:mx-40 lg:flex-row lg:flex-nowrap">
+            <div className="basis-full lg:basis-6/12 order-3 lg:order-none">
               <div className="flex flex-col gap-y-8">
-                <h1 className="text-5xl font-bold">{service.service}</h1>
+                <h1 className="text-3xl hidden md:text-4xl lg:text-5xl font-bold lg:flex">{service.service}</h1>
                 <p className="text-dark text-justify font-lg">
                   {service.description}
                 </p>
@@ -63,7 +62,10 @@ const Service: FC<ServiceProps> = ({ service }): JSX.Element => {
                 </div>
               </div>
             </div>
-            <div className="basis-5/12 flex flex-col gap-y-12 bg-concrete rounded-3xl px-4 py-8">
+
+            <h1 className="text-3xl mt-3 md:text-4xl lg:text-5xl font-bold flex order-1 lg:order-none lg:hidden">{service.service}</h1>
+
+            <div className="basis-full order-2 flex flex-col gap-y-12 bg-concrete rounded-3xl px-4 py-4 lg:py-8 lg:order-none lg:basis-5/12">
               <video className="w-full h-auto max-w-full rounded-3xl" controls>
                 <source
                   src={service.videoDescription}
@@ -92,7 +94,6 @@ const Service: FC<ServiceProps> = ({ service }): JSX.Element => {
               </div>
             </div>
           </div>
-        </div>
       </main>
 
       <Footer />

@@ -11,7 +11,7 @@ const navigation = [
 export default function Footer() {
   return (
     <footer className="bg-concrete font-josefin-sans">
-      <div className="px-5 lg:px-0 py-6 lg:mx-40">
+      <div className="px-5 mt-4 lg:px-0 py-6 lg:mx-40">
         <div className="flex gap-x-6 justify-start lg:justify-between mb-10">
           {/* sitemap */}
           <div className="basis-full md:basis-1/2 lg:basis-1/4 flex gap-x-12">
