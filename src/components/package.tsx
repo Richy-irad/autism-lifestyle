@@ -18,7 +18,7 @@ const Service: FC<ServiceProps> = ({ service, background }): JSX.Element => {
           href={`/services/${service.slug}`}
           className="basis-3/12 text-blue text-lg font-bold underline underline-offset-4"
         >
-          View Package
+          View details
         </Link>
       </div>
       <div className="flex flex-col gap-y-8">

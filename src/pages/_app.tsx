@@ -2,6 +2,8 @@ import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import localFont from "next/font/local";
+import { CartProvider } from "@/lib/contexts/CartContext";
+import { AddressContextProvider } from "@/lib/contexts/addressContext";
 
 const josefinSans = localFont({
   src: [
@@ -53,7 +55,11 @@ export default function App({ Component, pageProps }: AppProps) {
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0"
         />
       </Head>
-      <Component {...pageProps} />
+      <CartProvider>
+        <AddressContextProvider>
+          <Component {...pageProps} />
+        </AddressContextProvider>
+      </CartProvider>
     </div>
   );
 }

@@ -1,9 +1,11 @@
+import { useContext } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { Disclosure } from "@headlessui/react";
-import { List, X } from "@phosphor-icons/react";
+import { Basket, List, X } from "@phosphor-icons/react";
 import { ReactNode } from "react";
 import { Url } from "next/dist/shared/lib/router/router";
+import { CartContext } from "@/lib/contexts/CartContext";
 
 type CustomLinkProps = {
   children: ReactNode;
@@ -48,6 +50,7 @@ const CustomLink = ({ children, href }: CustomLinkProps) => {
 };
 
 export default function Navbar() {
+  const cart = useContext(CartContext);
   return (
     <Disclosure as="nav" className="bg-white font-josefin-sans">
       {({ open }) => (
@@ -79,6 +82,12 @@ export default function Navbar() {
                         {item.name}
                       </CustomLink>
                     ))}
+                    <CustomLink href="/cart">
+                      <div className="flex gap-x-0.5">
+                        <Basket size={24} />
+                        {cart && <>({cart.items.length})</>}
+                      </div>
+                    </CustomLink>
                   </div>
                 </div>
               </div>

@@ -31,5 +31,5 @@ export const getAllPackages = () => {
 
 // getMinPackages
 export const getMinPackages = () => {
-  return packages.slice(3);
+  return packages.slice(0, 3);
 };

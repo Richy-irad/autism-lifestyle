@@ -1,11 +1,13 @@
-import React, { FC } from "react";
+import React, { FC, useContext } from "react";
 import Link from "next/link";
 import { GetStaticProps } from "next";
 import { getAllPackagesSlugs, getPackage } from "@/lib/packages";
-import { ServiceProps } from "@/lib/types";
+import { PackageType, ServiceProps } from "@/lib/types";
 import { ParsedUrlQuery } from "querystring";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
+
+import { CartDispatchContext } from "@/lib/contexts/CartContext";
 
 interface IParams extends ParsedUrlQuery {
   slug: string;
@@ -33,7 +35,29 @@ export const getStaticProps: GetStaticProps = async (context) => {
   };
 };
 
+let nextId = 0
+
 const Service: FC<ServiceProps> = ({ service }): JSX.Element => {
+  const dispatch = useContext(CartDispatchContext)
+
+  const handleAddToCart = (service: PackageType, quantity: number) => {
+    let subTotal = service.price * quantity
+    dispatch({
+      type: 'added',
+      payload: {
+        item: {
+          id: nextId++,
+          item: {
+            title: service.service,
+            slug: service.slug,
+          },
+          quantity: quantity,
+          price: service.price,
+          subTotal: subTotal
+        },
+      }
+    })
+  }
   return (
     <>
       <Navbar />
@@ -78,12 +102,13 @@ const Service: FC<ServiceProps> = ({ service }): JSX.Element => {
                 KES. {service.price.toLocaleString("en-US")}.
               </span>
               <div className="flex flex-col gap-2 text-center">
-                <Link
-                  href="/services"
+                <button
+                  type="button"
                   className="text-primary font-semibold px-4 py-5 border-2 border-primary rounded-md"
+                  onClick={() => handleAddToCart(service, 1)}
                 >
                   Add Package to Cart
-                </Link>
+                </button>
 
                 <Link
                   href="/services"
