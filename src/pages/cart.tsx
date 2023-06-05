@@ -49,7 +49,7 @@ const CartItemExcerpt: FC<CartItemExcerptProps> = ({
     <tr className="border-t-0.5 border-light">
       <td className="py-5 px-4">
         <Link
-          href={cartItem.item.slug}
+          href={`services/${cartItem.item.slug}`}
           className="text-blue text-start underline underline-offset-4"
         >
           {cartItem.item.title}

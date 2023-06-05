@@ -1,13 +1,83 @@
-import { useContext, useState } from "react";
+import { FC, useContext, useState } from "react";
+import { useRouter } from "next/router";
+import { v4 as uuidV4 } from "uuid";
 import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
 
 import { CartContext } from "@/lib/contexts/CartContext";
 import AddressInfo from "@/components/AddressInfo";
+import { CheckoutProps } from "@/lib/types";
+import { useAddressContext } from "@/lib/contexts/addressContext";
 
-const Checkout = () => {
+export const getStaticProps = async () => {
+  let token = {};
+  const authURL = process.env.PESAPAL_AUTHENTICATION_URL as string;
+
+  // authenticate with pesapal
+  const authResponse = await fetch(authURL, {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      consumer_key: process.env.PESAPAL_CONSUMER_KEY,
+      consumer_secret: process.env.PESAPAL_CONSUMER_SECRET,
+    }),
+  });
+
+  if (authResponse.ok) {
+    token = await authResponse.json();
+  }
+
+  // return the authTokens in props
+
+  return {
+    props: {
+      authToken: token,
+    },
+  };
+};
+
+const Checkout: FC<CheckoutProps> = ({ authToken }) => {
   const cart = useContext(CartContext);
   const [editAddress, setEditAddress] = useState(false);
+
+  const router = useRouter();
+
+  let address = useAddressContext();
+
+  if (typeof address === "string") {
+    address = JSON.parse(address);
+  }
+
+  // method to handle submitOrderRequest
+  const handleSubmitOrderRequest = async () => {
+    // make the fetch call
+    if (address) {
+      fetch("/api/submit-order", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          address,
+          transaction_id: uuidV4(),
+          authToken,
+          cartTotal: cart.cartTotal,
+        }),
+      })
+        .then((response) => response.json())
+        .then((result) => {
+          console.log(result);
+          router.push(result.redirect_url);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+  };
 
   return (
     <>
@@ -31,16 +101,6 @@ const Checkout = () => {
 
                 <AddressInfo editAddress={editAddress} />
               </div>
-              <div className="flex flex-col gap-8">
-                <h2 className="text-3xl">Payment method</h2>
-                <div></div>
-              </div>
-              <button
-                type="button"
-                className="bg-primary text-dark text-center font-bold px-4 py-5 rounded-md"
-              >
-                Pay KES. {cart.cartTotal.toLocaleString("en-US")}
-              </button>
             </div>
             <div className="basis-4/12 bg-concrete px-6 py-8 rounded-3xl flex flex-col gap-3">
               <h3 className="text-2xl font-bold">Summary</h3>
@@ -67,6 +127,14 @@ const Checkout = () => {
                   <span>Total</span>
                   <span>KES. {cart.cartTotal.toLocaleString("en-US")}</span>
                 </div>
+                <hr className="my-8" />
+                <button
+                  type="button"
+                  className="bg-primary text-dark text-center font-bold px-4 py-5 rounded-md"
+                  onClick={() => handleSubmitOrderRequest()}
+                >
+                  Pay KES. {cart.cartTotal.toLocaleString("en-US")}
+                </button>
               </div>
             </div>
           </div>

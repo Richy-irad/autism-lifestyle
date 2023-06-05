@@ -19,7 +19,7 @@ const AddressInfo: FC<AddressInfoProps> = ({ editAddress }): JSX.Element => {
     <>
       {!editAddress ? (
         <>
-          {address && Object.entries(address).length && (
+          {address && Object.entries(address).length ? (
             <div className="flex flex-col gap-y-6">
               <div className="flex gap-x-6">
                 <div className="flex gap-6 justify-between">
@@ -57,6 +57,8 @@ const AddressInfo: FC<AddressInfoProps> = ({ editAddress }): JSX.Element => {
                 <p>{address.phone}</p>
               </div>
             </div>
+          ) : (
+            <AddressForm />
           )}
         </>
       ) : (
