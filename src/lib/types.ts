@@ -53,7 +53,8 @@ export type MessageType = {
 };
 
 export type AddressType = {
-  fullName: string;
+  firstName: string;
+  lastName: string;
   email: string;
   phone: string;
   addressLine1: string;

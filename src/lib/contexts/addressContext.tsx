@@ -2,7 +2,8 @@ import { createContext, PropsWithChildren, useContext } from "react";
 import { useAddress } from "../hooks";
 
 type AddressContextType = {
-  fullName?: string;
+  firstName?: string;
+  lastName?: string;
   email?: string;
   phone?: string;
   addressLine1?: string;

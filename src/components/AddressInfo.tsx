@@ -29,7 +29,7 @@ const AddressInfo: FC<AddressInfoProps> = ({ editAddress }): JSX.Element => {
                   </div>
                   <span>:</span>
                 </div>
-                <p>{address.fullName}</p>
+                <p>{`${address.firstName} ${address.lastName}`}</p>
               </div>
 
               <div className="flex gap-x-6 items-start">
