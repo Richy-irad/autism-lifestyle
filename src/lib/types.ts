@@ -15,6 +15,13 @@ export type ActionType = {
   };
 };
 
+export type AuthTokenType = {
+  token: string;
+  expiryDate: string;
+  status: string;
+  message: string;
+};
+
 export type BenefitType = {
   title: string;
   description: string;
@@ -46,7 +53,8 @@ export type MessageType = {
 };
 
 export type AddressType = {
-  fullName: string;
+  firstName: string;
+  lastName: string;
   email: string;
   phone: string;
   addressLine1: string;
@@ -61,6 +69,10 @@ export interface AddressInfoProps {
 
 export interface CartItemExcerptProps {
   cartItem: CartItemType;
+}
+
+export interface CheckoutProps {
+  authToken: AuthTokenType;
 }
 
 export interface ServiceProps {

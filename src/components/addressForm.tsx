@@ -5,7 +5,8 @@ import {
 } from "@/lib/contexts/addressContext";
 
 const AddressForm = () => {
-  const [fullName, setFullName] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [addressLine1, setAddressLine1] = useState("");
@@ -13,7 +14,8 @@ const AddressForm = () => {
   const [country, setCountry] = useState("");
   const [city, setCity] = useState("");
 
-  const fullNameInputRef = useRef<HTMLInputElement>(null);
+  const firstNameInputRef = useRef<HTMLInputElement>(null);
+  const lastNameInputRef = useRef<HTMLInputElement>(null);
   const emailInputRef = useRef<HTMLInputElement>(null);
   const phoneInputRef = useRef<HTMLInputElement>(null);
   const addressLine1InputRef = useRef<HTMLInputElement>(null);
@@ -28,7 +30,7 @@ const AddressForm = () => {
   }
 
   const saveButtonActive =
-    fullName && email && phone && addressLine1 && country && city;
+    firstName && email && phone && addressLine1 && country && city;
 
   const setAddress = useSetAddressContext();
 
@@ -60,7 +62,8 @@ const AddressForm = () => {
   // save address to localstorage
   const handleSetAddress = () => {
     let addressData = {
-      fullName,
+      firstName,
+      lastName,
       email,
       phone,
       addressLine1,
@@ -72,8 +75,12 @@ const AddressForm = () => {
     const emailRegex = /\S+@\S+\.\S+/;
 
     // check if the necessary fields were filled
-    if (!fullName) {
-      displayInputError(fullNameInputRef.current as HTMLInputElement);
+    if (!firstName) {
+      displayInputError(firstNameInputRef.current as HTMLInputElement);
+    }
+
+    if (!lastName) {
+      displayInputError(lastNameInputRef.current as HTMLInputElement);
     }
 
     if (!email) {
@@ -101,7 +108,15 @@ const AddressForm = () => {
     }
 
     // avoid saving an incomplete address
-    if (!fullName || !email || !phone || !addressLine1 || !country || !city) {
+    if (
+      !firstName ||
+      !lastName ||
+      !email ||
+      !phone ||
+      !addressLine1 ||
+      !country ||
+      !city
+    ) {
       return;
     }
 
@@ -111,23 +126,44 @@ const AddressForm = () => {
   return (
     <form className="flex flex-col gap-y-8 items-center lg:items-start">
       <div className="flex flex-col gap-6 w-full">
-        {/* full name */}
-        <div>
-          <label htmlFor="fullName" className="block">
-            Full name
-          </label>
-          <input
-            type="text"
-            ref={fullNameInputRef}
-            className="border-0.5 border-light rounded-md block w-full px-2.5 py-3.5"
-            name="fullName"
-            value={address.fullName ? address.fullName : fullName}
-            placeholder="Full name"
-            onChange={(event) => setFullName(event.target.value)}
-            onBlur={() =>
-              handleOnBlur(fullNameInputRef.current as HTMLInputElement)
-            }
-          />
+        <div className="flex gap-x-6">
+          {/* first name */}
+          <div className="basis-1/2 space-y-3">
+            <label htmlFor="firstName" className="block">
+              First name
+            </label>
+            <input
+              type="text"
+              ref={firstNameInputRef}
+              className="border-0.5 border-light rounded-md block w-full px-2.5 py-3.5"
+              name="firstName"
+              value={address.firstName ? address.firstName : firstName}
+              placeholder="Full name"
+              onChange={(event) => setFirstName(event.target.value)}
+              onBlur={() =>
+                handleOnBlur(firstNameInputRef.current as HTMLInputElement)
+              }
+            />
+          </div>
+          
+          {/* last name */}
+          <div className="basis-1/2 space-y-3">
+            <label htmlFor="lastName" className="block">
+              Last name
+            </label>
+            <input
+              type="text"
+              ref={lastNameInputRef}
+              className="border-0.5 border-light rounded-md block w-full px-2.5 py-3.5"
+              name="lastName"
+              value={address.lastName ? address.lastName : lastName}
+              placeholder="Full name"
+              onChange={(event) => setLastName(event.target.value)}
+              onBlur={() =>
+                handleOnBlur(lastNameInputRef.current as HTMLInputElement)
+              }
+            />
+          </div>
         </div>
 
         <div className="flex gap-x-6">
@@ -203,24 +239,6 @@ const AddressForm = () => {
         </div>
 
         <div className="flex gap-x-6">
-          {/* country */}
-          <div className="basis-1/2 space-y-3">
-            <label htmlFor="country" className="block">
-              Country
-            </label>
-            <input
-              type="text"
-              ref={countryInputRef}
-              className="border-0.5 border-light rounded-md block w-full px-2.5 py-3.5"
-              name="country"
-              value={address.country ? address.country : country}
-              placeholder="Country"
-              onChange={(event) => setCountry(event.target.value)}
-              onBlur={() =>
-                handleOnBlur(countryInputRef.current as HTMLInputElement)
-              }
-            />
-          </div>
           {/* city */}
           <div className="basis-1/2 space-y-3">
             <label htmlFor="city" className="block">
@@ -236,6 +254,24 @@ const AddressForm = () => {
               onChange={(event) => setCity(event.target.value)}
               onBlur={() =>
                 handleOnBlur(cityInputRef.current as HTMLInputElement)
+              }
+            />
+          </div>
+          {/* country */}
+          <div className="basis-1/2 space-y-3">
+            <label htmlFor="country" className="block">
+              Country
+            </label>
+            <input
+              type="text"
+              ref={countryInputRef}
+              className="border-0.5 border-light rounded-md block w-full px-2.5 py-3.5"
+              name="country"
+              value={address.country ? address.country : country}
+              placeholder="Country"
+              onChange={(event) => setCountry(event.target.value)}
+              onBlur={() =>
+                handleOnBlur(countryInputRef.current as HTMLInputElement)
               }
             />
           </div>
