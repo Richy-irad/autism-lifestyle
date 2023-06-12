@@ -157,7 +157,7 @@ const AddressForm = () => {
               className="border-0.5 border-light rounded-md block w-full px-2.5 py-3.5"
               name="lastName"
               value={address.lastName ? address.lastName : lastName}
-              placeholder="Full name"
+              placeholder="Last name"
               onChange={(event) => setLastName(event.target.value)}
               onBlur={() =>
                 handleOnBlur(lastNameInputRef.current as HTMLInputElement)

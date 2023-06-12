@@ -63,6 +63,20 @@ export type AddressType = {
   city: string;
 };
 
+export type OrderItemType = {
+  title: string;
+  quantity: number;
+  price: number;
+  subTotal: number;
+};
+
+export type OrderType = {
+  orderTrackingID: string;
+  orderDate: string;
+  billingAddress: AddressType;
+  orderItems: OrderItemType[];
+};
+
 export interface AddressInfoProps {
   address: AddressType;
 }
@@ -73,6 +87,10 @@ export interface CartItemExcerptProps {
 
 export interface CheckoutProps {
   authToken: AuthTokenType;
+}
+
+export interface SuccessProps {
+  order: OrderType;
 }
 
 export interface ServiceProps {

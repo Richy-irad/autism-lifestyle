@@ -1,4 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
+import { writeClient } from "../../../sanity/lib/client";
+import { CartItemType } from "@/lib/types";
 
 export default async function handler(
   req: NextApiRequest,
@@ -6,7 +8,7 @@ export default async function handler(
 ) {
   if (req.method === "POST") {
     // do the submit order request
-    const { address, transaction_id, authToken, cartTotal } = req.body;
+    const { address, transaction_id, authToken, cart } = req.body;
     try {
       const submitOrderRequestResponse = await fetch(
         process.env.PESAPAL_SUBMIT_ORDER_REQUEST_URL as string,
@@ -20,7 +22,7 @@ export default async function handler(
           body: JSON.stringify({
             id: transaction_id,
             currency: "KES",
-            // amount: cartTotal,
+            // amount: cart.cartTotal,
             amount: 1,
             description: "Payment description goes here",
             callback_url: process.env.PESAPAL_CALLBACK_URL,
@@ -46,7 +48,24 @@ export default async function handler(
 
       // console.log the results
       let results = await submitOrderRequestResponse.json();
-      console.log(results);
+
+      // create an order in studio
+      const order = {
+        _type: "order",
+        orderTrackingID: results.order_tracking_id,
+        orderDate: new Date().toISOString(),
+        billingAddress: address,
+        orderItems: cart.items.map((item: CartItemType, index: number) => {
+          return {
+            _key: `order-item-${index}`,
+            title: item.item.title,
+            quantity: item.quantity,
+            price: item.price,
+            subTotal: item.subTotal,
+          };
+        }),
+      };
+      await writeClient.create(order).then((res) => console.log(res));
 
       res.status(200).json(results);
     } catch (error) {

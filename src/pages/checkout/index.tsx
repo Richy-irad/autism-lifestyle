@@ -65,7 +65,7 @@ const Checkout: FC<CheckoutProps> = ({ authToken }) => {
           address,
           transaction_id: uuidV4(),
           authToken,
-          cartTotal: cart.cartTotal,
+          cart: cart,
         }),
       })
         .then((response) => response.json())
