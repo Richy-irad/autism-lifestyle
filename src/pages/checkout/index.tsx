@@ -7,32 +7,14 @@ import Navbar from "@/components/navbar";
 
 import { CartContext } from "@/lib/contexts/CartContext";
 import AddressInfo from "@/components/AddressInfo";
-import { CheckoutProps } from "@/lib/types";
+import { AuthTokenType, CheckoutProps } from "@/lib/types";
 import { useAddressContext } from "@/lib/contexts/addressContext";
+import pesapalAuth from "@/lib/pesapalAuth";
 
 export const getStaticProps = async () => {
-  let token = {};
-  const authURL = process.env.PESAPAL_AUTHENTICATION_URL as string;
-
-  // authenticate with pesapal
-  const authResponse = await fetch(authURL, {
-    method: "POST",
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      consumer_key: process.env.PESAPAL_CONSUMER_KEY,
-      consumer_secret: process.env.PESAPAL_CONSUMER_SECRET,
-    }),
-  });
-
-  if (authResponse.ok) {
-    token = await authResponse.json();
-  }
+  let token = await pesapalAuth();
 
   // return the authTokens in props
-
   return {
     props: {
       authToken: token,
@@ -53,32 +35,49 @@ const Checkout: FC<CheckoutProps> = ({ authToken }) => {
     address = JSON.parse(address);
   }
 
+  // method to do the submitOrder
+  const submitOrder = (authToken: AuthTokenType) => {
+    fetch("/api/submit-order", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        address,
+        transaction_id: uuidV4(),
+        authToken,
+        cart: cart,
+      }),
+    })
+      .then((response) => response.json())
+      .then((result) => {
+        setCheckingOut(false);
+        router.push(result.redirect_url);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   // method to handle submitOrderRequest
   const handleSubmitOrderRequest = async () => {
     // make the fetch call
     if (address) {
       setCheckingOut(true);
-      fetch("/api/submit-order", {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          address,
-          transaction_id: uuidV4(),
-          authToken,
-          cart: cart,
-        }),
-      })
-        .then((response) => response.json())
-        .then((result) => {
-          setCheckingOut(false);
-          router.push(result.redirect_url);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+
+      // check if the token being used is still valid
+      let now = new Date();
+      let tokenExpiry = new Date(authToken.expiryDate);
+
+      if (now < tokenExpiry) {
+        submitOrder(authToken);
+      } else {
+        // authenticate the checkout first,
+        // then submit the order
+        let newAuthToken = await pesapalAuth();
+        submitOrder(newAuthToken);
+      }
     }
   };
 
