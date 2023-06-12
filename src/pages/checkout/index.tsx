@@ -43,6 +43,7 @@ export const getStaticProps = async () => {
 const Checkout: FC<CheckoutProps> = ({ authToken }) => {
   const cart = useContext(CartContext);
   const [editAddress, setEditAddress] = useState(false);
+  const [checkingOut, setCheckingOut] = useState(false);
 
   const router = useRouter();
 
@@ -56,6 +57,7 @@ const Checkout: FC<CheckoutProps> = ({ authToken }) => {
   const handleSubmitOrderRequest = async () => {
     // make the fetch call
     if (address) {
+      setCheckingOut(true);
       fetch("/api/submit-order", {
         method: "POST",
         headers: {
@@ -71,7 +73,7 @@ const Checkout: FC<CheckoutProps> = ({ authToken }) => {
       })
         .then((response) => response.json())
         .then((result) => {
-          console.log(result);
+          setCheckingOut(false);
           router.push(result.redirect_url);
         })
         .catch((error) => {
@@ -130,13 +132,23 @@ const Checkout: FC<CheckoutProps> = ({ authToken }) => {
                     <span>KES. {cart.cartTotal.toLocaleString("en-US")}</span>
                   </div>
                   <hr className="my-8" />
-                  <button
-                    type="button"
-                    className="bg-primary text-dark text-center font-bold px-4 py-5 rounded-md"
-                    onClick={() => handleSubmitOrderRequest()}
-                  >
-                    Pay KES. {cart.cartTotal.toLocaleString("en-US")}
-                  </button>
+                  {checkingOut ? (
+                    <button
+                      type="button"
+                      className="bg-primary text-dark text-center font-bold px-4 py-5 rounded-md"
+                      onClick={() => handleSubmitOrderRequest()}
+                    >
+                      Processing ...
+                    </button>
+                  ) : (
+                    <button
+                      type="button"
+                      className="bg-primary text-dark text-center font-bold px-4 py-5 rounded-md"
+                      onClick={() => handleSubmitOrderRequest()}
+                    >
+                      Pay KES. {cart.cartTotal.toLocaleString("en-US")}
+                    </button>
+                  )}
                 </div>
               </div>
             </div>

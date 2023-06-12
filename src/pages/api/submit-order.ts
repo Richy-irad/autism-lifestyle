@@ -65,7 +65,7 @@ export default async function handler(
           };
         }),
       };
-      await writeClient.create(order).then((res) => console.log(res));
+      await writeClient.create(order);
 
       res.status(200).json(results);
     } catch (error) {
