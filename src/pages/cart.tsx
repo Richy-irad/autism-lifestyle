@@ -68,11 +68,7 @@ const CartItemExcerpt: FC<CartItemExcerptProps> = ({
             <Minus size={14} weight="bold" />
           </button>
         ) : (
-          <button
-            type="button"
-            className="text-dark"
-            disabled
-          >
+          <button type="button" className="text-dark" disabled>
             <Minus size={14} weight="bold" />
           </button>
         )}
@@ -132,10 +128,7 @@ const Cart = () => {
                     <tbody>
                       <>
                         {cart.items.map((cartItem, index) => (
-                          <CartItemExcerpt
-                            key={index}
-                            cartItem={cartItem}
-                          />
+                          <CartItemExcerpt key={index} cartItem={cartItem} />
                         ))}
                         <tr className="border-y-0.5 border-light font-bold">
                           <td className="text-start py-6 px-4">Items total:</td>
@@ -158,7 +151,15 @@ const Cart = () => {
                   </Link>
                 </>
               ) : (
-                <p>You Have no items in your cart</p>
+                <>
+                  <p>You Have no items in your cart</p>
+                  <Link
+                    href="/services"
+                    className="bg-primary text-dark font-semibold px-4 py-5 rounded-md"
+                  >
+                    Browse our Services
+                  </Link>
+                </>
               )}
             </div>
           </div>
