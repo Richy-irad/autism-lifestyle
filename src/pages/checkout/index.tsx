@@ -1,6 +1,5 @@
 import { FC, useContext, useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/router";
 import { v4 as uuidV4 } from "uuid";
 import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
@@ -27,8 +26,6 @@ const Checkout: FC<CheckoutProps> = ({ authToken }) => {
   const [editAddress, setEditAddress] = useState(false);
   const [checkingOut, setCheckingOut] = useState(false);
 
-  const router = useRouter();
-
   let address = useAddressContext();
 
   if (typeof address === "string") {
@@ -53,7 +50,8 @@ const Checkout: FC<CheckoutProps> = ({ authToken }) => {
       .then((response) => response.json())
       .then((result) => {
         setCheckingOut(false);
-        router.push(result.redirect_url);
+        // router.push(result.redirect_url);
+        window.open(result.redirect_url, "_blank");
       })
       .catch((error) => {
         console.log(error);
