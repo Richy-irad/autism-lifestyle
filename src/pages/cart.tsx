@@ -84,7 +84,7 @@ const CartItemExcerpt: FC<CartItemExcerptProps> = ({
       <td className="py-5 px-4 text-end">
         $ {cartItem.subTotal.toLocaleString("en-US")}
       </td>
-      <td className="py-5 px-4 flex justify-center text-light">
+      <td className="my-5 mx-4 flex justify-center text-light hover:text-red-500">
         <button
           type="button"
           onClick={() => {
