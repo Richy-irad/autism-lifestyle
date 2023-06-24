@@ -30,7 +30,7 @@
         "description": "Potty training can also reduce the financial burden on families by decreasing the need for diapers and other toileting supplies."
       }
     ],
-    "price": 12000
+    "price": 90
   },
   {
     "service": "Transition Package",
@@ -67,7 +67,7 @@
         "description": "Transition training often involves practicing planning, organization, and problem-solving skills, which can help your child develop better executive function skills that will benefit them in all areas of life."
       }
     ],
-    "price": 9000
+    "price": 65
   },
   {
     "service": "Therapy Package",
@@ -112,7 +112,7 @@
         "description": "Some children with autism may struggle with motor skills, making everyday activities more challenging. Therapy can help them improve their coordination, balance, and overall motor skills."
       }
     ],
-    "price": 3000
+    "price": 25
   },
   {
     "service": "Communication Package",
@@ -145,7 +145,7 @@
         "description": "Communication training can help children with autism build stronger relationships with family and friends, leading to improved quality of life and overall happiness."
       }
     ],
-    "price": 5000
+    "price": 40
   },
   {
     "service": "Behavior Management Package",
@@ -178,7 +178,7 @@
         "description": "Behavior management training can provide parents and caregivers with the tools and strategies they need to better support their child with autism, leading to improved family relationships and overall quality of life."
       }
     ],
-    "price": 9000
+    "price": 65
   },
   {
     "service": "Language Package (Swahili)",
@@ -211,6 +211,6 @@
         "description": "The package includes resources and guidance specifically tailored for Swahili language learners. It offers language exercises, interactive learning materials, pronunciation guidance, and cultural insights to support a comprehensive learning experience."
       }
     ],
-    "price": 3000
+    "price": 25
   }
 ]

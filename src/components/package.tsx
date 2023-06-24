@@ -41,7 +41,7 @@ const Service: FC<ServiceProps> = ({ service, background }): JSX.Element => {
           </div>
         </div>
         <span className="font-bold text-2xl">
-          KES. {service.price.toLocaleString("en-US")}.
+          $ {service.price.toLocaleString("en-US")}.
         </span>
       </div>
     </div>

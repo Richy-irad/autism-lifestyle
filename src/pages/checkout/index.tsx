@@ -119,7 +119,7 @@ const Checkout: FC<CheckoutProps> = ({ authToken }) => {
                             x{cartItem.quantity}
                           </span>
                           <span className="basis-4/12 text-end">
-                            KES. {cartItem.subTotal.toLocaleString("en-US")}
+                            $. {cartItem.subTotal.toLocaleString("en-US")}
                           </span>
                         </div>
                       ))}
@@ -128,7 +128,7 @@ const Checkout: FC<CheckoutProps> = ({ authToken }) => {
                   <hr className="my-8" />
                   <div className="flex justify-between font-bold text-base">
                     <span>Total</span>
-                    <span>KES. {cart.cartTotal.toLocaleString("en-US")}</span>
+                    <span>$. {cart.cartTotal.toLocaleString("en-US")}</span>
                   </div>
                   <hr className="my-8" />
                   {checkingOut ? (
@@ -145,7 +145,7 @@ const Checkout: FC<CheckoutProps> = ({ authToken }) => {
                       className="bg-primary text-dark text-center font-bold px-4 py-5 rounded-md"
                       onClick={() => handleSubmitOrderRequest()}
                     >
-                      Pay KES. {cart.cartTotal.toLocaleString("en-US")}
+                      Pay $. {cart.cartTotal.toLocaleString("en-US")}
                     </button>
                   )}
                 </div>

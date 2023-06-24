@@ -21,7 +21,7 @@ export default async function handler(
           },
           body: JSON.stringify({
             id: transaction_id,
-            currency: "KES",
+            currency: "USD",
             // amount: cart.cartTotal,
             amount: 1,
             description: "Payment description goes here",

@@ -56,7 +56,7 @@ const CartItemExcerpt: FC<CartItemExcerptProps> = ({
         </Link>
       </td>
       <td className="py-5 px-4 text-end">
-        KES. {cartItem.price.toLocaleString("en-US")}
+        $ {cartItem.price.toLocaleString("en-US")}
       </td>
       <td className="py-5 px-4 justify-center flex gap-x-3 items-center">
         {cartItem.quantity > 1 ? (
@@ -82,7 +82,7 @@ const CartItemExcerpt: FC<CartItemExcerptProps> = ({
         </button>
       </td>
       <td className="py-5 px-4 text-end">
-        KES. {cartItem.subTotal.toLocaleString("en-US")}
+        $ {cartItem.subTotal.toLocaleString("en-US")}
       </td>
       <td className="py-5 px-4 flex justify-center text-light">
         <button
@@ -135,7 +135,7 @@ const Cart = () => {
                           <td></td>
                           <td></td>
                           <td className="text-end py-6 px-4">
-                            KES {cart.cartTotal.toLocaleString("en-US")}
+                            $ {cart.cartTotal.toLocaleString("en-US")}
                           </td>
                         </tr>
                       </>
