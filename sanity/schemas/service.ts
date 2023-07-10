@@ -7,7 +7,7 @@ export default {
       name: "service",
       title: "Service",
       type: "string",
-      validation: (Rule) => Rule.required(),
+      validation: (Rule: { required: () => any }) => Rule.required(),
     },
     {
       name: "slug",
@@ -21,7 +21,7 @@ export default {
       name: "description",
       title: "Description",
       type: "string",
-      validation: (Rule) => Rule.required(),
+      validation: (Rule: { required: () => any }) => Rule.required(),
     },
     {
       name: "videoDescription",
@@ -35,7 +35,13 @@ export default {
       name: "price",
       title: "Price",
       type: "number",
-      validation: (Rule) => Rule.required().positive(),
+      validation: (Rule: {
+        required: () => {
+          (): any;
+          new (): any;
+          positive: { (): any; new (): any };
+        };
+      }) => Rule.required().positive(),
     },
   ],
 };
