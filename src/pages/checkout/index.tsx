@@ -151,7 +151,7 @@ const Checkout: FC<CheckoutProps> = ({ authToken }) => {
             </div>
           ) : (
             <div className="flex flex-col gap-3 items-start mt-4">
-              <p>You haven't added any packages to your cart to checkout!!!</p>
+              <p>You haven&apos;t added any packages to your cart to checkout!!!</p>
               <Link
                 href="/services"
                 className="bg-primary text-dark font-semibold px-4 py-5 rounded-md"
