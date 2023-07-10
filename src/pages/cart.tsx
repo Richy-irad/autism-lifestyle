@@ -56,7 +56,7 @@ const CartItemExcerpt: FC<CartItemExcerptProps> = ({
         </Link>
       </td>
       <td className="py-5 px-4 text-end">
-        KES. {cartItem.price.toLocaleString("en-US")}
+        $ {cartItem.price.toLocaleString("en-US")}
       </td>
       <td className="py-5 px-4 justify-center flex gap-x-3 items-center">
         {cartItem.quantity > 1 ? (
@@ -68,11 +68,7 @@ const CartItemExcerpt: FC<CartItemExcerptProps> = ({
             <Minus size={14} weight="bold" />
           </button>
         ) : (
-          <button
-            type="button"
-            className="text-dark"
-            disabled
-          >
+          <button type="button" className="text-dark" disabled>
             <Minus size={14} weight="bold" />
           </button>
         )}
@@ -86,9 +82,9 @@ const CartItemExcerpt: FC<CartItemExcerptProps> = ({
         </button>
       </td>
       <td className="py-5 px-4 text-end">
-        KES. {cartItem.subTotal.toLocaleString("en-US")}
+        $ {cartItem.subTotal.toLocaleString("en-US")}
       </td>
-      <td className="py-5 px-4 flex justify-center text-light">
+      <td className="my-5 mx-4 flex justify-center text-light hover:text-red-500">
         <button
           type="button"
           onClick={() => {
@@ -132,17 +128,14 @@ const Cart = () => {
                     <tbody>
                       <>
                         {cart.items.map((cartItem, index) => (
-                          <CartItemExcerpt
-                            key={index}
-                            cartItem={cartItem}
-                          />
+                          <CartItemExcerpt key={index} cartItem={cartItem} />
                         ))}
                         <tr className="border-y-0.5 border-light font-bold">
                           <td className="text-start py-6 px-4">Items total:</td>
                           <td></td>
                           <td></td>
                           <td className="text-end py-6 px-4">
-                            KES {cart.cartTotal.toLocaleString("en-US")}
+                            $ {cart.cartTotal.toLocaleString("en-US")}
                           </td>
                         </tr>
                       </>
@@ -158,7 +151,15 @@ const Cart = () => {
                   </Link>
                 </>
               ) : (
-                <p>You Have no items in your cart</p>
+                <>
+                  <p>You Have no items in your cart</p>
+                  <Link
+                    href="/services"
+                    className="bg-primary text-dark font-semibold px-4 py-5 rounded-md"
+                  >
+                    Browse our Services
+                  </Link>
+                </>
               )}
             </div>
           </div>

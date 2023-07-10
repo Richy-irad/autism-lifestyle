@@ -30,7 +30,7 @@
         "description": "Potty training can also reduce the financial burden on families by decreasing the need for diapers and other toileting supplies."
       }
     ],
-    "price": 12000
+    "price": 90
   },
   {
     "service": "Transition Package",
@@ -67,7 +67,7 @@
         "description": "Transition training often involves practicing planning, organization, and problem-solving skills, which can help your child develop better executive function skills that will benefit them in all areas of life."
       }
     ],
-    "price": 9000
+    "price": 65
   },
   {
     "service": "Therapy Package",
@@ -112,7 +112,7 @@
         "description": "Some children with autism may struggle with motor skills, making everyday activities more challenging. Therapy can help them improve their coordination, balance, and overall motor skills."
       }
     ],
-    "price": 3000
+    "price": 25
   },
   {
     "service": "Communication Package",
@@ -145,11 +145,11 @@
         "description": "Communication training can help children with autism build stronger relationships with family and friends, leading to improved quality of life and overall happiness."
       }
     ],
-    "price": 5000
+    "price": 40
   },
   {
     "service": "Behavior Management Package",
-    "slug": "behavior-management-packaged",
+    "slug": "behavior-management-package",
     "videoDescription": "https://res.cloudinary.com/richy-irad/video/upload/v1683634441/Hashize_iminsi_by_Makanyaga_Abdul_Lyrics-W39QgzSiJLM_jw7tbj.mp4",
     "description": "Our behavior management training package is designed to help children with autism learn positive behaviors and self-regulation skills. Our skilled therapists will work with your child to develop a personalized plan tailored to their specific needs, helping them build the foundation for successful behavior management.",
     "benefits": [
@@ -178,6 +178,39 @@
         "description": "Behavior management training can provide parents and caregivers with the tools and strategies they need to better support their child with autism, leading to improved family relationships and overall quality of life."
       }
     ],
-    "price": 9000
+    "price": 65
+  },
+  {
+    "service": "Language Package (Swahili)",
+    "slug": "language-package",
+    "videoDescription": "https://res.cloudinary.com/richy-irad/video/upload/v1683634441/Hashize_iminsi_by_Makanyaga_Abdul_Lyrics-W39QgzSiJLM_jw7tbj.mp4",
+    "description": "The Swahili Language Package is a comprehensive program designed to support individuals in developing and enhancing their Swahili language skills. With a focus on effective communication strategies and tailored learning approaches, this package provides a structured framework to promote Swahili language development and foster meaningful connections.",
+    "benefits": [
+      {
+        "title": "Improved Communication Skills",
+        "description": "The Swahili Language Package offers a range of techniques and resources to help individuals improve their Swahili language abilities, including vocabulary building, grammar proficiency, and conversational skills."
+      },
+      {
+        "title": "Enhanced Cultural Understanding",
+        "description": "By strengthening Swahili language skills, the package enables individuals to engage more effectively with Swahili-speaking communities and gain a deeper understanding of Swahili culture, traditions, and values."
+      },
+      {
+        "title": "Expanded Language Proficiency",
+        "description": "The program facilitates the expansion of Swahili vocabulary and enhances language comprehension, enabling individuals to understand and express themselves fluently and accurately in Swahili."
+      },
+      {
+        "title": "Increased Cultural Integration",
+        "description": "As Swahili language proficiency improves, individuals gain greater integration into Swahili-speaking communities. They can actively participate in social gatherings, local events, and connect with native Swahili speakers on a deeper level."
+      },
+      {
+        "title": "Enriched Multilingualism",
+        "description": "Learning Swahili as an additional language enriches individuals' multilingual abilities, expanding their cognitive and linguistic flexibility. It enhances their overall language learning capacity and opens avenues for further language exploration."
+      },
+      {
+        "title": "Support for Language Learners",
+        "description": "The package includes resources and guidance specifically tailored for Swahili language learners. It offers language exercises, interactive learning materials, pronunciation guidance, and cultural insights to support a comprehensive learning experience."
+      }
+    ],
+    "price": 25
   }
 ]

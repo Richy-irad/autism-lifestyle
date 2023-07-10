@@ -1,8 +1,32 @@
-import React, { FC } from "react";
+import React, { FC, useContext } from "react";
 import Link from "next/link";
-import { ServiceProps } from "@/lib/types";
+import { ServiceProps, PackageType } from "@/lib/types";
+import { CartDispatchContext } from "@/lib/contexts/CartContext";
+import { Basket } from "@phosphor-icons/react";
+
+let nextId = 0;
 
 const Service: FC<ServiceProps> = ({ service, background }): JSX.Element => {
+  const dispatch = useContext(CartDispatchContext);
+
+  const handleAddToCart = (service: PackageType, quantity: number) => {
+    let subTotal = service.price * quantity;
+    dispatch({
+      type: "added",
+      payload: {
+        item: {
+          id: nextId++,
+          item: {
+            title: service.service,
+            slug: service.slug,
+          },
+          quantity: quantity,
+          price: service.price,
+          subTotal: subTotal,
+        },
+      },
+    });
+  };
   return (
     <div
       key={service.service}
@@ -40,9 +64,18 @@ const Service: FC<ServiceProps> = ({ service, background }): JSX.Element => {
             ))}
           </div>
         </div>
-        <span className="font-bold text-2xl">
-          KES. {service.price.toLocaleString("en-US")}.
-        </span>
+        <div className="flex justify-between items-center">
+          <span className="font-bold text-2xl">
+            $ {service.price.toLocaleString("en-US")}.
+          </span>
+          <button
+            type="button"
+            className="text-primary text-sm font-semibold mx-2 my-2.5"
+            onClick={() => handleAddToCart(service, 1)}
+          >
+            <Basket size={24} />
+          </button>
+        </div>
       </div>
     </div>
   );

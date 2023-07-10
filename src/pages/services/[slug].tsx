@@ -99,7 +99,7 @@ const Service: FC<ServiceProps> = ({ service }): JSX.Element => {
               </video>
 
               <span className="font-bold text-2xl">
-                KES. {service.price.toLocaleString("en-US")}.
+                $ {service.price.toLocaleString("en-US")}.
               </span>
               <div className="flex flex-col gap-2 text-center">
                 <button
