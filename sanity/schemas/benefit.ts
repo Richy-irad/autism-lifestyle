@@ -13,13 +13,13 @@ export default {
       name: "title",
       title: "Title",
       type: "string",
-      validation: (Rule) => Rule.required(),
+      validation: (Rule: { required: () => any }) => Rule.required(),
     },
     {
       name: "description",
       title: "Description",
       type: "string",
-      validation: (Rule) => Rule.required(),
+      validation: (Rule: { required: () => any }) => Rule.required(),
     },
   ],
 };
