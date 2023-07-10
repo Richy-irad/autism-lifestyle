@@ -36,7 +36,7 @@ const Home: FC<IndexProps> = ({ packages }) => {
                 <p className="text-lg font-regular text-center lg:text-start">
                   We are in an era where cases of autism are increasing by day.
                   Here, sensitization and inclusivity is key. We are here to
-                  make that happen. Let&apos;s grow and learn together
+                  make that happen. Let&lsquo;s grow and learn together
                 </p>
               </div>
               <Link
