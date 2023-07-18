@@ -3,6 +3,7 @@ import { useAddressContext } from "@/lib/contexts/addressContext";
 import AddressForm from "./addressForm";
 
 import { House, Phone, User } from "@phosphor-icons/react";
+import { AddressType } from "@/lib/types";
 
 interface AddressInfoProps {
   editAddress: boolean;
@@ -12,7 +13,7 @@ const AddressInfo: FC<AddressInfoProps> = ({ editAddress }): JSX.Element => {
   let address = useAddressContext();
 
   if (typeof address === "string") {
-    address = JSON.parse(address);
+    address = JSON.parse(address) as AddressType;
   }
 
   return (

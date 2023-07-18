@@ -1,4 +1,10 @@
-import { createContext, Dispatch, PropsWithChildren, useContext } from "react";
+import {
+  createContext,
+  Dispatch,
+  PropsWithChildren,
+  useContext,
+  SetStateAction,
+} from "react";
 import { useAddress } from "../hooks";
 
 type AddressContextType = {
@@ -13,7 +19,7 @@ type AddressContextType = {
 };
 
 const AddressContext = createContext<AddressContextType | string>({});
-const SetAddresscontext = createContext<Dispatch<string>>(null);
+const SetAddresscontext = createContext<Dispatch<SetStateAction<string>> | null>(null);
 
 export const useAddressContext = () => {
   return useContext(AddressContext);
