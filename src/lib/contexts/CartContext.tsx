@@ -1,11 +1,6 @@
-import {
-  createContext,
-  Dispatch,
-  PropsWithChildren,
-  useReducer,
-} from "react";
+import { createContext, Dispatch, PropsWithChildren, useReducer } from "react";
 import cartReducer from "../reducers/cartReducer";
-import { CartItemType } from "../types";
+import { ActionType, CartItemType } from "../types";
 
 type CartContextType = {
   items: CartItemType[];
@@ -16,7 +11,9 @@ export const CartContext = createContext<CartContextType>({
   items: [],
   cartTotal: 0,
 });
-export const CartDispatchContext = createContext<Dispatch>(null);
+export const CartDispatchContext = createContext<Dispatch<ActionType> | null>(
+  null
+);
 
 export const CartProvider = ({ children }: PropsWithChildren): JSX.Element => {
   const initialState = {
