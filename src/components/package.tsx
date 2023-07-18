@@ -1,6 +1,6 @@
 import React, { FC, useContext } from "react";
 import Link from "next/link";
-import { ServiceProps, PackageType } from "@/lib/types";
+import { CartActions, ServiceProps, PackageType } from "@/lib/types";
 import { CartDispatchContext } from "@/lib/contexts/CartContext";
 import { Basket } from "@phosphor-icons/react";
 
@@ -11,8 +11,8 @@ const Service: FC<ServiceProps> = ({ service, background }): JSX.Element => {
 
   const handleAddToCart = (service: PackageType, quantity: number) => {
     let subTotal = service.price * quantity;
-    dispatch({
-      type: "added",
+    dispatch?.({
+      type: CartActions.added,
       payload: {
         item: {
           id: nextId++,
