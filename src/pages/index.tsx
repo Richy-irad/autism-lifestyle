@@ -1,4 +1,5 @@
 import React, { FC } from "react";
+import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import heroImage from "../../public/assets/cdc-20YP7NENJzk-unsplash.jpg";
@@ -23,6 +24,19 @@ export const getStaticProps = async () => {
 const Home: FC<IndexProps> = ({ packages }) => {
   return (
     <>
+      <Head>
+        <meta
+          name="description"
+          content="Empowering lives through specialized autism lifestyle education. Discover our comprehensive programs designed to enhance communication, social skills, and overall well-being for individuals and families affected by autism. Join our thriving community for personalized learning and empowering solutions."
+        />
+        <meta
+          name="keywords"
+          content="Autism lifestyle, Autism support, Autism resources, Autism strategies, Autism communication,  Autism social skills, Autism well-being, Autism community, Autism empowerment, Autism families, Autism insights, Autism experts, Autism inclusive, Autism therapy, Autism learning resources, Autism parenting tips, Autism education, Autism awareness, Autism acceptance, Autism advocacy"
+        />
+        <title>Autism Lifestyle</title>
+        <meta property="og:title" content="Autism Lifestle" />
+        <meta property="og:type" content="website" />
+      </Head>
       <Navbar />
       <main className="font-josefin-sans">
         {/* hero section */}
