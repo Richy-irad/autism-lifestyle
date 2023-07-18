@@ -18,5 +18,5 @@ export function useLocalStorage<T>(key: string, fallbackValue: T) {
 }
 
 export function useAddress() {
-  return useLocalStorage("address", "{}");
+  return useLocalStorage("address", JSON.stringify({}));
 }

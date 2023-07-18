@@ -1,13 +1,13 @@
 // custom types
 
-enum ActionTypeKind {
+export enum CartActions {
   added = "added",
   changed = "changed",
   deleted = "deleted",
 }
 
 export type ActionType = {
-  type: ActionTypeKind;
+  type: CartActions;
   payload: {
     id?: number;
     item: CartItemType;

@@ -3,6 +3,7 @@ import {
   useAddressContext,
   useSetAddressContext,
 } from "@/lib/contexts/addressContext";
+import { AddressType } from "@/lib/types";
 
 const AddressForm = () => {
   const [firstName, setFirstName] = useState("");
@@ -26,7 +27,7 @@ const AddressForm = () => {
   let address = useAddressContext();
 
   if (typeof address === "string") {
-    address = JSON.parse(address);
+    address = JSON.parse(address) as AddressType;
   }
 
   const saveButtonActive =
@@ -70,7 +71,7 @@ const AddressForm = () => {
       addressLine2,
       country,
       city,
-    };
+    } as AddressType;
 
     const emailRegex = /\S+@\S+\.\S+/;
 
@@ -120,7 +121,7 @@ const AddressForm = () => {
       return;
     }
 
-    setAddress(addressData);
+    setAddress?.(JSON.stringify(addressData));
   };
 
   return (
@@ -145,7 +146,7 @@ const AddressForm = () => {
               }
             />
           </div>
-          
+
           {/* last name */}
           <div className="basis-1/2 space-y-3">
             <label htmlFor="lastName" className="block">

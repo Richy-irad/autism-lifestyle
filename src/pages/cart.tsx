@@ -4,7 +4,7 @@ import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import { CaretRight, Minus, Plus, Trash } from "@phosphor-icons/react";
 import { CartContext, CartDispatchContext } from "@/lib/contexts/CartContext";
-import { CartItemExcerptProps } from "@/lib/types";
+import { CartActions, CartItemExcerptProps } from "@/lib/types";
 
 const CartItemExcerpt: FC<CartItemExcerptProps> = ({
   cartItem,
@@ -14,8 +14,8 @@ const CartItemExcerpt: FC<CartItemExcerptProps> = ({
   const handleQuantityIncrease = () => {
     let newQuantity = cartItem.quantity + 1;
     let newSubTotal = cartItem.price * newQuantity;
-    dispatch({
-      type: "changed",
+    dispatch?.({
+      type: CartActions.changed,
       payload: {
         item: {
           id: cartItem.id,
@@ -31,8 +31,8 @@ const CartItemExcerpt: FC<CartItemExcerptProps> = ({
   const handleQuantityDecrease = () => {
     let newQuantity = cartItem.quantity - 1;
     let newSubTotal = cartItem.price * newQuantity;
-    dispatch({
-      type: "changed",
+    dispatch?.({
+      type: CartActions.changed,
       payload: {
         item: {
           id: cartItem.id,
@@ -88,10 +88,11 @@ const CartItemExcerpt: FC<CartItemExcerptProps> = ({
         <button
           type="button"
           onClick={() => {
-            dispatch({
-              type: "deleted",
+            dispatch?.({
+              type: CartActions.deleted,
               payload: {
                 id: cartItem.id,
+                item: cartItem,
               },
             });
           }}
