@@ -1,4 +1,5 @@
 import { FC, useContext } from "react";
+import Head from "next/head";
 import Link from "next/link";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
@@ -108,6 +109,9 @@ const Cart = () => {
   const cart = useContext(CartContext);
   return (
     <>
+      <Head>
+        <title>Cart | Autism Lifestyle</title>
+      </Head>
       <Navbar />
       <main className="font-josefin-sans">
         <div className="bg-white">

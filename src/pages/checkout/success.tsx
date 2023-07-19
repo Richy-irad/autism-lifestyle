@@ -1,4 +1,5 @@
 import { FC } from "react";
+import Head from "next/head";
 import Link from "next/link";
 import { ParsedUrlQuery } from "querystring";
 import Navbar from "@/components/navbar";
@@ -64,6 +65,9 @@ const Success: FC<SuccessProps> = ({ order }): JSX.Element => {
   };
   return (
     <>
+      <Head>
+        <title>Checkout Success | Autism Lifestyle</title>
+      </Head>
       <Navbar />
       <main className="font-josefin-sans">
         <div className="px-5 lg:mx-40 py-20">

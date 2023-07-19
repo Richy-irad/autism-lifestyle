@@ -1,4 +1,5 @@
 import React, { FC } from "react";
+import Head from "next/head";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import { getAllPackages } from "@/lib/packages";
@@ -19,6 +20,19 @@ export async function getStaticProps() {
 const Services: FC<ServicesProps> = ({ packages }): JSX.Element => {
   return (
     <>
+      <Head>
+        <meta
+          name="description"
+          content="Comprehensive autism education services for children. Explore our expertly crafted programs that foster communication, social skills, and overall development. Join us and experience the power of personalized learning in an inclusive and supportive environment."
+        />
+        <meta
+          name="keywords"
+          content="Autism lifestyle, Autism support, Autism resources, Autism strategies, Autism communication,  Autism social skills, Autism well-being, Autism community, Autism empowerment, Autism families, Autism insights, Autism experts, Autism inclusive, Autism therapy, Autism learning resources, Autism parenting tips, Autism education, Autism awareness, Autism acceptance, Autism advocacy"
+        />
+        <title>Services | Autism Lifestyle</title>
+        <meta property="og:title" content="Services | Autism Lifestyle" />
+        <meta property="og:type" content="website" />
+      </Head>
       <Navbar />
       <main className="font-josefin-sans">
         {/* services section */}

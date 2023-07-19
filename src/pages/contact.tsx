@@ -7,6 +7,19 @@ import ContactForm from "@/components/contactForm";
 const Contact = () => {
   return (
     <>
+      <Head>
+        <meta
+          name="description"
+          content="Get in touch for personalized autism education solutions. Our team is here to answer your questions and guide you through our specialized programs. Reach out now to join our community and embark on a journey of growth and learning."
+        />
+        <meta
+          name="keywords"
+          content="Autism lifestyle, Autism support, Autism resources, Autism strategies, Autism communication,  Autism social skills, Autism well-being, Autism community, Autism empowerment, Autism families, Autism insights, Autism experts, Autism inclusive, Autism therapy, Autism learning resources, Autism parenting tips, Autism education, Autism awareness, Autism acceptance, Autism advocacy"
+        />
+        <title>Contact Us | Autism Lifestyle</title>
+        <meta property="og:title" content="Contact Us | Autism Lifestyle" />
+        <meta property="og:type" content="website" />
+      </Head>
       <Navbar />
       <main className="font-josefin-sans">
         <div className="bg-white">

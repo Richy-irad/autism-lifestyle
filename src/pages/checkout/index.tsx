@@ -1,4 +1,5 @@
 import { FC, useContext, useState } from "react";
+import Head from "next/head";
 import Link from "next/link";
 import { v4 as uuidV4 } from "uuid";
 import Footer from "@/components/footer";
@@ -81,6 +82,9 @@ const Checkout: FC<CheckoutProps> = ({ authToken }) => {
 
   return (
     <>
+      <Head>
+        <title>Checkout | Autism Lifestyle</title>
+      </Head>
       <Navbar />
       <main className="font-josefin-sans">
         <div className="px-5 lg:mx-40 py-20">
