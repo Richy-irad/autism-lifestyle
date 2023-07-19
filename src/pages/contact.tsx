@@ -23,7 +23,7 @@ const Contact = () => {
       <Navbar />
       <main className="font-josefin-sans">
         <div className="bg-white">
-          <div className="px-5 lg:mx-40 py-20 flex flex-col gap-y-8">
+          <div className="px-5 lg:mx-40 py-10 lg:py-20 flex flex-col gap-y-8">
             <h1 className="text-center lg:text-end text-3xl md:text-4xl lg:text-6xl font-bold">
               Get in Touch
             </h1>

@@ -25,21 +25,25 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
   if (OrderTrackingId) {
     // fetch the order from sanity using orderTrackingId from query
-    const query = `*[_type == 'order' && orderTrackingID == $orderTrackingId]{
-    orderTrackingID,
-    orderDate,
-    billingAddress,
-    orderItems,
-  }`;
 
-    const params = {
-      orderTrackingId: OrderTrackingId,
-    };
+    try {
+      const query = `*[_type == 'order' && orderTrackingID == $orderTrackingId]{
+        orderTrackingID,
+        orderDate,
+        billingAddress,
+        orderItems,
+      }`;
+      const params = {
+        orderTrackingId: OrderTrackingId,
+      };
 
-    const orderResponse = await client.fetch(query, params);
+      const orderResponse = await client.fetch(query, params);
 
-    // reduce the orderResponse to get the order
-    order = orderResponse.reduce((ord: OrderType) => ord);
+      // reduce the orderResponse to get the order
+      order = await orderResponse.reduce((ord: OrderType) => ord);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   return {

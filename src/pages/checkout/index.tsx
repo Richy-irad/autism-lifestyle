@@ -87,11 +87,11 @@ const Checkout: FC<CheckoutProps> = ({ authToken }) => {
       </Head>
       <Navbar />
       <main className="font-josefin-sans">
-        <div className="px-5 lg:mx-40 py-20">
+        <div className="px-5 lg:mx-40 py-10 lg:py-20">
           <h1 className="text-5xl font-medium">Checkout</h1>
           {cart && cart.items.length ? (
-            <div className="flex justify-between mt-5 items-start">
-              <div className="basis-7/12 flex flex-col gap-y-8">
+            <div className="flex justify-between mt-5 items-start flex-wrap gap-y-8">
+              <div className="basis-full lg:basis-7/12 flex flex-col gap-y-8">
                 <div className="flex flex-col gap-y-8">
                   <div className="flex gap-x-4">
                     <h2 className="text-3xl">Billing Details</h2>
@@ -107,7 +107,7 @@ const Checkout: FC<CheckoutProps> = ({ authToken }) => {
                   <AddressInfo editAddress={editAddress} />
                 </div>
               </div>
-              <div className="basis-4/12 bg-concrete px-6 py-8 rounded-3xl flex flex-col gap-3">
+              <div className="basis-full lg:basis-4/12 bg-concrete px-6 py-8 rounded-3xl flex flex-col gap-3">
                 <h3 className="text-2xl font-bold">Summary</h3>
                 <div className="flex flex-col gap-2 text-md">
                   {cart && cart.items.length && (

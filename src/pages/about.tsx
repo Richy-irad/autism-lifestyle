@@ -25,7 +25,7 @@ const About = () => {
       <Navbar />
       <main className="font-josefin-sans">
         <div className="flex">
-          <div className="basis-full mx-5 py-8 lg:py-16 lg:basis-8/12 lg:mx-auto flex flex-col">
+          <div className="basis-full mx-5 py-10 lg:py-10 lg:basis-8/12 lg:mx-auto flex flex-col">
             {/* The quote */}
             <div className="basis-full lg:basis-8/12 lg:mx-auto flex flex-col lg:flex-row gap-4 lg:gap-16 items-center py-8 px-7 bg-concrete rounded-3xl">
               <Image

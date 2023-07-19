@@ -136,7 +136,7 @@ const AddressForm = () => {
             <input
               type="text"
               ref={firstNameInputRef}
-              className="border-0.5 border-light rounded-md block w-full px-2.5 py-3.5"
+              className="border-0.5 border-light rounded-md block w-full px-2.5 py-2 lg:py-3.5"
               name="firstName"
               value={address.firstName ? address.firstName : firstName}
               placeholder="First name"
@@ -155,7 +155,7 @@ const AddressForm = () => {
             <input
               type="text"
               ref={lastNameInputRef}
-              className="border-0.5 border-light rounded-md block w-full px-2.5 py-3.5"
+              className="border-0.5 border-light rounded-md block w-full px-2.5 py-2 lg:py-3.5"
               name="lastName"
               value={address.lastName ? address.lastName : lastName}
               placeholder="Last name"
@@ -176,7 +176,7 @@ const AddressForm = () => {
             <input
               type="email"
               ref={emailInputRef}
-              className="border-0.5 border-light rounded-md block w-full px-2.5 py-3.5"
+              className="border-0.5 border-light rounded-md block w-full px-2.5 py-2 lg:py-3.5"
               name="email"
               value={address.email ? address.email : email}
               placeholder="Email"
@@ -194,7 +194,7 @@ const AddressForm = () => {
             <input
               type="text"
               ref={phoneInputRef}
-              className="border-0.5 border-light rounded-md block w-full px-2.5 py-3.5"
+              className="border-0.5 border-light rounded-md block w-full px-2.5 py-2 lg:py-3.5"
               name="phone"
               value={address.phone ? address.phone : phone}
               placeholder="Phone"
@@ -213,7 +213,7 @@ const AddressForm = () => {
           <input
             type="text"
             ref={addressLine1InputRef}
-            className="border-0.5 border-light rounded-md block w-full px-2.5 py-3.5"
+            className="border-0.5 border-light rounded-md block w-full px-2.5 py-2 lg:py-3.5"
             name="addressLine1"
             value={address.addressLine1 ? address.addressLine1 : addressLine1}
             placeholder="Address Line 1"
@@ -231,7 +231,7 @@ const AddressForm = () => {
           <input
             type="text"
             ref={addressLine2InputRef}
-            className="border-0.5 border-light rounded-md block w-full px-2.5 py-3.5"
+            className="border-0.5 border-light rounded-md block w-full px-2.5 py-2 lg:py-3.5"
             name="addressLine2"
             value={address.addressLine2 ? address.addressLine2 : addressLine2}
             placeholder="Address Line 2"
@@ -248,7 +248,7 @@ const AddressForm = () => {
             <input
               type="text"
               ref={cityInputRef}
-              className="border-0.5 border-light rounded-md block w-full px-2.5 py-3.5"
+              className="border-0.5 border-light rounded-md block w-full px-2.5 py-2 lg:py-3.5"
               name="city"
               value={address.city ? address.city : city}
               placeholder="City"
@@ -266,7 +266,7 @@ const AddressForm = () => {
             <input
               type="text"
               ref={countryInputRef}
-              className="border-0.5 border-light rounded-md block w-full px-2.5 py-3.5"
+              className="border-0.5 border-light rounded-md block w-full px-2.5 py-2 lg:py-3.5"
               name="country"
               value={address.country ? address.country : country}
               placeholder="Country"
@@ -282,7 +282,7 @@ const AddressForm = () => {
       {saveButtonActive ? (
         <button
           type="button"
-          className="bg-primary text-dark font-semibold px-4 py-5 rounded-md"
+          className="bg-primary text-dark font-semibold px-4 py-2.5 lg:py-5 rounded-md"
           onClick={() => handleSetAddress()}
         >
           Save address
@@ -290,7 +290,7 @@ const AddressForm = () => {
       ) : (
         <button
           type="button"
-          className="text-dark border-0.5 border-light font-semibold px-4 py-5 rounded-md"
+          className="text-dark border-0.5 border-light font-semibold px-4 py-2.5 lg:py-5 rounded-md"
           disabled
         >
           Save address

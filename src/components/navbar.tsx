@@ -82,14 +82,14 @@ export default function Navbar() {
                         {item.name}
                       </CustomLink>
                     ))}
-                    <CustomLink href="/cart">
-                      <div className="flex gap-x-0.5">
-                        <Basket size={24} />
-                        {cart && <>({cart.items.length})</>}
-                      </div>
-                    </CustomLink>
                   </div>
                 </div>
+                <CustomLink href="/cart">
+                  <div className="flex gap-x-0.5">
+                    <Basket size={24} />
+                    {cart && <>({cart.items.length})</>}
+                  </div>
+                </CustomLink>
               </div>
             </div>
           </div>
