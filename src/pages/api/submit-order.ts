@@ -9,6 +9,7 @@ export default async function handler(
   if (req.method === "POST") {
     // do the submit order request
     const { address, transaction_id, authToken, cart } = req.body;
+    console.log(authToken)
     try {
       const submitOrderRequestResponse = await fetch(
         process.env.PESAPAL_SUBMIT_ORDER_REQUEST_URL as string,
