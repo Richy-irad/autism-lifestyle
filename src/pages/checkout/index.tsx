@@ -13,6 +13,7 @@ import pesapalAuth from "@/lib/pesapalAuth";
 
 export const getStaticProps = async () => {
   let token = await pesapalAuth();
+  console.log(token);
 
   // return the authTokens in props
   return {
