@@ -1,4 +1,5 @@
 import React, { FC, useContext } from "react";
+import Head from "next/head";
 import Link from "next/link";
 import { GetStaticProps } from "next";
 import { getAllPackagesSlugs, getPackage } from "@/lib/packages";
@@ -60,6 +61,16 @@ const Service: FC<ServiceProps> = ({ service }): JSX.Element => {
   };
   return (
     <>
+      <Head>
+        <meta name="description" content={service.metaDescription} />
+        <meta
+          name="keywords"
+          content="Autism lifestyle, Autism support, Autism resources, Autism strategies, Autism communication,  Autism social skills, Autism well-being, Autism community, Autism empowerment, Autism families, Autism insights, Autism experts, Autism inclusive, Autism therapy, Autism learning resources, Autism parenting tips, Autism education, Autism awareness, Autism acceptance, Autism advocacy"
+        />
+        <title>{service.service}</title>
+        <meta property="og:title" content={service.service} />
+        <meta property="og:type" content="website" />
+      </Head>
       <Navbar />
 
       <main className="font-josefin-sans">

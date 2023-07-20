@@ -1,4 +1,5 @@
 import { FC } from "react";
+import Head from "next/head";
 import Link from "next/link";
 import { ParsedUrlQuery } from "querystring";
 import Navbar from "@/components/navbar";
@@ -24,21 +25,25 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
   if (OrderTrackingId) {
     // fetch the order from sanity using orderTrackingId from query
-    const query = `*[_type == 'order' && orderTrackingID == $orderTrackingId]{
-    orderTrackingID,
-    orderDate,
-    billingAddress,
-    orderItems,
-  }`;
 
-    const params = {
-      orderTrackingId: OrderTrackingId,
-    };
+    try {
+      const query = `*[_type == 'order' && orderTrackingID == $orderTrackingId]{
+        orderTrackingID,
+        orderDate,
+        billingAddress,
+        orderItems,
+      }`;
+      const params = {
+        orderTrackingId: OrderTrackingId,
+      };
 
-    const orderResponse = await client.fetch(query, params);
+      const orderResponse = await client.fetch(query, params);
 
-    // reduce the orderResponse to get the order
-    order = orderResponse.reduce((ord: OrderType) => ord);
+      // reduce the orderResponse to get the order
+      order = await orderResponse.reduce((ord: OrderType) => ord);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   return {
@@ -64,6 +69,9 @@ const Success: FC<SuccessProps> = ({ order }): JSX.Element => {
   };
   return (
     <>
+      <Head>
+        <title>Checkout Success | Autism Lifestyle</title>
+      </Head>
       <Navbar />
       <main className="font-josefin-sans">
         <div className="px-5 lg:mx-40 py-20">

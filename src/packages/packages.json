@@ -2,6 +2,7 @@
   {
     "service": "Potty Training Package",
     "slug": "potty-training-package",
+    "metaDescription": "Empower your child's independence with our structured and individualized potty training package. Our experienced team guides children with autism towards success, reducing anxiety, and fostering self-esteem. Join now for a comprehensive potty training experience.",
     "videoDescription": "https://res.cloudinary.com/richy-irad/video/upload/v1683634441/Hashize_iminsi_by_Makanyaga_Abdul_Lyrics-W39QgzSiJLM_jw7tbj.mp4",
     "description": "Our potty training package is designed specifically for children with autism, providing a structured and individualized approach. With our experienced team's guidance, you can help your child achieve success and gain independence. Take the next step towards your child's self-confidence with our comprehensive potty training package.",
     "benefits": [
@@ -35,6 +36,7 @@
   {
     "service": "Transition Package",
     "slug": "transition-package",
+    "metaDescription": "Navigate new situations with confidence through our comprehensive transition training package. Help your child adapt, improve academic performance, and gain a greater sense of control. Join us for personalized support and improved safety.",
     "videoDescription": "https://res.cloudinary.com/richy-irad/video/upload/v1683634441/Hashize_iminsi_by_Makanyaga_Abdul_Lyrics-W39QgzSiJLM_jw7tbj.mp4",
     "description": "Transitioning to new situations can be challenging for children with autism, but with our comprehensive transition training package, your child can gain the skills and confidence they need to navigate these changes successfully. Our individualized approach is designed specifically for children with autism, providing them with the support they need to thrive.",
     "benefits": [
@@ -72,6 +74,7 @@
   {
     "service": "Therapy Package",
     "slug": "therapy-packaged",
+    "metaDescription": "Unlock your child's full potential with our comprehensive therapy package. Enhance social skills, reduce anxiety, and improve independence. Join now for skilled therapists and improved family relationships.",
     "videoDescription": "https://res.cloudinary.com/richy-irad/video/upload/v1683634441/Hashize_iminsi_by_Makanyaga_Abdul_Lyrics-W39QgzSiJLM_jw7tbj.mp4",
     "description": "Our comprehensive therapy package is designed to provide children with autism the support they need to achieve their full potential. Our experienced therapists will work with you and your child to develop a personalized plan tailored to their specific needs, helping them overcome challenges and build important skills.",
     "benefits": [
@@ -117,6 +120,7 @@
   {
     "service": "Communication Package",
     "slug": "communication-package",
+    "metaDescription": "Build strong connections with our communication training package. Reduce frustration, improve behavior, and enhance social skills. Join us for personalized plans and better relationships with family and friends.",
     "videoDescription": "https://res.cloudinary.com/richy-irad/video/upload/v1683634441/Hashize_iminsi_by_Makanyaga_Abdul_Lyrics-W39QgzSiJLM_jw7tbj.mp4",
     "description": "Our communication training package is designed to help children with autism develop the communication skills they need to connect with others and succeed in everyday life. Our experienced therapists will work with your child to develop a personalized plan tailored to their specific needs, helping them build the foundation for effective communication.",
     "benefits": [
@@ -150,6 +154,7 @@
   {
     "service": "Behavior Management Package",
     "slug": "behavior-management-package",
+    "metaDescription": "Cultivate positive behaviors and self-regulation skills with our behavior management training package. Improve social skills, cope with transitions, and reduce anxiety. Join now for better academic performance and family relationships.",
     "videoDescription": "https://res.cloudinary.com/richy-irad/video/upload/v1683634441/Hashize_iminsi_by_Makanyaga_Abdul_Lyrics-W39QgzSiJLM_jw7tbj.mp4",
     "description": "Our behavior management training package is designed to help children with autism learn positive behaviors and self-regulation skills. Our skilled therapists will work with your child to develop a personalized plan tailored to their specific needs, helping them build the foundation for successful behavior management.",
     "benefits": [
@@ -183,6 +188,7 @@
   {
     "service": "Language Package (Swahili)",
     "slug": "language-package",
+    "metaDescription": "Explore the rich world of Swahili with our comprehensive language package. Enhance communication, cultural understanding, and language proficiency. Join us for an enriched multilingual experience and tailored support for language learners.",
     "videoDescription": "https://res.cloudinary.com/richy-irad/video/upload/v1683634441/Hashize_iminsi_by_Makanyaga_Abdul_Lyrics-W39QgzSiJLM_jw7tbj.mp4",
     "description": "The Swahili Language Package is a comprehensive program designed to support individuals in developing and enhancing their Swahili language skills. With a focus on effective communication strategies and tailored learning approaches, this package provides a structured framework to promote Swahili language development and foster meaningful connections.",
     "benefits": [

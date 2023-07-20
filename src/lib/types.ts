@@ -41,6 +41,7 @@ export type CartItemType = {
 export type PackageType = {
   service: string;
   slug: string;
+  metaDescription: string;
   videoDescription: string;
   description: string;
   benefits: BenefitType[];
