@@ -4,7 +4,7 @@ import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import { MapPin } from "@phosphor-icons/react";
 
-import aboutImage from "../../public/brian-tromp-MxkYQ39KFmE-unsplash.jpg";
+import aboutImage from "../../public/brenda-image.jpeg";
 
 const About = () => {
   return (
@@ -31,7 +31,8 @@ const About = () => {
               <Image
                 src={aboutImage}
                 alt=""
-                className="hidden lg:flex w-[371px] h-[371px] object-cover rounded-full"
+                priority
+                className="hidden lg:flex w-[371px] h-[371px] object-cover rounded-full shrink-0"
               />
               <div className="flex flex-col gap-8">
                 <p className="font-regular text-base lg:text-2xl">
@@ -44,7 +45,8 @@ const About = () => {
                   <Image
                     src={aboutImage}
                     alt=""
-                    className="flex lg:hidden w-[60px] h-[60px] object-cover rounded-full"
+                    priority
+                    className="flex lg:hidden w-[60px] h-[60px] object-cover rounded-full shrink-0"
                   />
                   <p className="font-regular text-lg">
                     Brenda Kawira &#45;{" "}
