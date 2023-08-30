@@ -24,12 +24,6 @@ export default {
       validation: (Rule: { required: () => any }) => Rule.required(),
     },
     {
-      name: "metaDescription",
-      title: "Meta description",
-      type: "string",
-      validation: (Rule: { required: () => any }) => Rule.required(),
-    },
-    {
       name: "videoDescription",
       title: "Video description",
       type: "url",

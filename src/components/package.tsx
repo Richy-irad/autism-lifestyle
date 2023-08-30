@@ -29,6 +29,7 @@ const Service: FC<ServiceProps> = ({ service, background }): JSX.Element => {
   };
   return (
     <div
+      key={service.service}
       className={`${
         background === "white" ? "bg-white" : "bg-concrete"
       } px-7 py-8 rounded-md flex flex-col gap-y-12`}
@@ -53,9 +54,9 @@ const Service: FC<ServiceProps> = ({ service, background }): JSX.Element => {
             Benefits
           </h4>
           <div className="flex gap-4 flex-wrap">
-            {service.benefits.map((benefit, index) => (
+            {service.benefits.map((benefit) => (
               <span
-                key={index}
+                key={benefit.title}
                 className="bg-secondary text-white text-sm font-semibold text-center p-2.5 rounded-md"
               >
                 {benefit.title}
