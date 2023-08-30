@@ -3,8 +3,8 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import heroImage from "../../public/assets/cdc-20YP7NENJzk-unsplash.jpg";
+import { getMinPackages } from "@/lib/packages";
 import { IndexProps } from "@/lib/types";
-import { client } from "../../sanity/lib/client";
 
 import ContactForm from "@/components/contactForm";
 import Footer from "@/components/footer";
@@ -12,16 +12,7 @@ import Navbar from "@/components/navbar";
 import Service from "@/components/package";
 
 export const getStaticProps = async () => {
-  const query = `*[_type == 'service']{
-    service, 
-    "slug": slug.current, 
-    metaDescription, 
-    videoDescription, 
-    description, 
-    price,
-    "benefits": *[_type == 'benefit' && references(^._id)]{title, description}
-  }[0...3]`;
-  const packages = await client.fetch(query);
+  const packages = getMinPackages();
 
   return {
     props: {
