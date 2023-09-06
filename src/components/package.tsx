@@ -65,7 +65,7 @@ const Service: FC<ServiceProps> = ({ service, background }): JSX.Element => {
         </div>
         <div className="flex justify-between items-center">
           <span className="font-bold text-2xl">
-            $ {service.price.toLocaleString("en-US")}.
+            $ {service.price && service.price.toLocaleString("en-US")}.
           </span>
           <button
             type="button"
