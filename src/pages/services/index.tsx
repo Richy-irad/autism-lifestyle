@@ -2,13 +2,23 @@ import React, { FC } from "react";
 import Head from "next/head";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
-import { getAllPackages } from "@/lib/packages";
 import { ServicesProps } from "@/lib/types";
 
 import Service from "@/components/package";
+import { client } from "../../../sanity/lib/client";
 
 export async function getStaticProps() {
-  const packages = getAllPackages();
+  const query = `*[_type == 'service']{
+    service, 
+    "slug": slug.current, 
+    metaDescription, 
+    videoDescription, 
+    description, 
+    price, 
+    "benefits": *[_type == 'benefit' && references(^._id)]{title, description}
+  }`;
+
+  const packages = await client.fetch(query);
 
   return {
     props: {

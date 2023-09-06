@@ -2,13 +2,13 @@ import React, { FC, useContext } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import { GetStaticProps } from "next";
-import { getAllPackagesSlugs, getPackage } from "@/lib/packages";
 import { CartActions, PackageType, ServiceProps } from "@/lib/types";
 import { ParsedUrlQuery } from "querystring";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 
 import { CartDispatchContext } from "@/lib/contexts/CartContext";
+import { client } from "../../../sanity/lib/client";
 
 interface IParams extends ParsedUrlQuery {
   slug: string;
@@ -16,7 +16,15 @@ interface IParams extends ParsedUrlQuery {
 
 // getStaticPaths
 export const getStaticPaths = async () => {
-  const paths = getAllPackagesSlugs();
+  const query = `*[_type == 'service'].slug.current`;
+  const slugs = await client.fetch(query);
+  const paths = slugs.map((slug: string) => {
+    return {
+      params: {
+        slug: slug,
+      },
+    };
+  });
 
   return {
     paths,
@@ -27,8 +35,21 @@ export const getStaticPaths = async () => {
 // getStaticProps
 export const getStaticProps: GetStaticProps = async (context) => {
   const { slug } = context.params as IParams;
+  const query = `*[_type == 'service' && slug.current == $slug]{
+    service, 
+    "slug": slug.current, 
+    metaDescription, 
+    videoDescription, 
+    description, 
+    price, 
+    "benefits": *[_type == 'benefit' && references(^._id)]{title, description}
+  }`;
+  const params = {
+    slug: slug,
+  };
+  const serviceResponse = await client.fetch(query, params);
+  const service = await serviceResponse.reduce((serv: PackageType) => serv);
 
-  const service = getPackage(slug);
   return {
     props: {
       service,
@@ -87,8 +108,8 @@ const Service: FC<ServiceProps> = ({ service }): JSX.Element => {
               <div className="flex flex-col gap-y-6">
                 <h4 className="text-2xl text-black font-regular">Benefits</h4>
                 <div className="flex flex-col gap-3 flex-wrap">
-                  {service.benefits.map((benefit) => (
-                    <p key={benefit.title}>
+                  {service.benefits.map((benefit, index) => (
+                    <p key={index}>
                       <span className="font-bold text-secondary">
                         {benefit.title}:{" "}
                       </span>
