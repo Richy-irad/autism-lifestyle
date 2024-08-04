@@ -21,10 +21,10 @@ const Contact = () => {
         <meta property="og:type" content="website" />
       </Head>
       <Navbar />
-      <main className="font-josefin-sans">
+      <main className="font-inter">
         <div className="bg-white">
           <div className="px-5 lg:mx-40 py-10 lg:py-20 flex flex-col gap-y-8">
-            <h1 className="text-center lg:text-end text-3xl md:text-4xl lg:text-6xl font-bold">
+            <h1 className="text-center lg:text-start text-3xl md:text-4xl lg:text-6xl font-bold">
               Get in Touch
             </h1>
             <div className="flex justify-between flex-wrap gap-y-4">

@@ -94,12 +94,12 @@ const Service: FC<ServiceProps> = ({ service }): JSX.Element => {
       </Head>
       <Navbar />
 
-      <main className="font-josefin-sans">
+      <main className="font-inter">
         {/* services section */}
         <div className="flex flex-col flex-wrap gap-y-8 gap-x-32 items-start px-5 py:10 lg:py-20 lg:mx-40 lg:flex-row lg:flex-nowrap">
           <div className="basis-full lg:basis-6/12 order-3 lg:order-none">
             <div className="flex flex-col gap-y-8">
-              <h1 className="text-3xl hidden md:text-4xl lg:text-5xl font-bold lg:flex">
+              <h1 className="font-josefin-sans text-3xl hidden md:text-4xl lg:text-5xl font-bold lg:flex">
                 {service.service}
               </h1>
               <p className="text-dark text-justify font-lg">
@@ -132,7 +132,7 @@ const Service: FC<ServiceProps> = ({ service }): JSX.Element => {
             </video>
 
             <span className="font-bold text-2xl">
-              $ {service.price && service.price.toLocaleString("en-US")}.
+              $ {service.price && service.price.toLocaleString("en-US")}
             </span>
             <div className="flex flex-col gap-2 text-center">
               <button

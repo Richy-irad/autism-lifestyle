@@ -20,12 +20,16 @@ module.exports = {
       },
       fontFamily: {
         "josefin-sans": "var(--font-josefin-sans)",
+        inter: "var(--font-inter)",
       },
       borderWidth: {
         0.5: "0.5px",
       },
       padding: {
         18: "72px",
+      },
+      backgroundImage: {
+        "hero-image": "url(/assets/cdc-20YP7NENJzk-unsplash.jpg)",
       },
     },
   },

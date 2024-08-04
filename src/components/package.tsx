@@ -34,7 +34,7 @@ const Service: FC<ServiceProps> = ({ service, background }): JSX.Element => {
       } px-7 py-8 rounded-md flex flex-col gap-y-12`}
     >
       <div className="flex justify-between items-center">
-        <h3 className="basis-9/12 text-dark text-xl lg:text-3xl font-medium">
+        <h3 className="font-josefin-sans basis-9/12 text-dark text-xl lg:text-3xl font-medium">
           {service.service}
         </h3>
         <Link
@@ -65,7 +65,7 @@ const Service: FC<ServiceProps> = ({ service, background }): JSX.Element => {
         </div>
         <div className="flex justify-between items-center">
           <span className="font-bold text-2xl">
-            $ {service.price && service.price.toLocaleString("en-US")}.
+            $ {service.price && service.price.toLocaleString("en-US")}
           </span>
           <button
             type="button"

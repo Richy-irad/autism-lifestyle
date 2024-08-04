@@ -73,13 +73,15 @@ const Success: FC<SuccessProps> = ({ order }): JSX.Element => {
         <title>Checkout Success | Autism Lifestyle</title>
       </Head>
       <Navbar />
-      <main className="font-josefin-sans">
+      <main className="font-inter">
         <div className="px-5 lg:mx-40 py-20">
           <div className="flex justify-center">
             {order ? (
               <div className="basis-full lg:basis-10/12 flex flex-col gap-y-8">
                 <div className="flex justify-between mt-5 items-center">
-                  <h1 className="text-5xl font-medium">Receipt</h1>
+                  <h1 className="text-5xl font-medium font-josefin-sans">
+                    Receipt
+                  </h1>
                   <div className="flex gap-x-2">
                     <button
                       type="button"

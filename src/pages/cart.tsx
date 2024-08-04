@@ -164,11 +164,11 @@ const Cart = () => {
         <title>Cart | Autism Lifestyle</title>
       </Head>
       <Navbar />
-      <main className="font-josefin-sans">
+      <main className="font-inter">
         <div className="bg-white">
           <div className="px-5 lg:mx-40 py-10 lg:py-20 flex">
             <div className="basis-full lg:basis-8/12 mx-auto flex flex-col gap-y-9 items-start">
-              <h1 className="text-5xl font-medium">Cart</h1>
+              <h1 className="font-josefin-sans text-5xl font-medium">Cart</h1>
 
               {cart && cart.items.length ? (
                 <>

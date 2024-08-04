@@ -10,7 +10,7 @@ const navigation = [
 
 export default function Footer() {
   return (
-    <footer className="bg-concrete font-josefin-sans">
+    <footer className="bg-concrete font-inter">
       <div className="px-5 mt-4 lg:px-0 py-6 lg:mx-40">
         <div className="flex flex-wrap gap-x-6 justify-start lg:justify-between mb-10">
           {/* sitemap */}

@@ -10,6 +10,7 @@ import AddressInfo from "@/components/AddressInfo";
 import { AuthTokenType, CheckoutProps } from "@/lib/types";
 import { useAddressContext } from "@/lib/contexts/addressContext";
 import pesapalAuth from "@/lib/pesapalAuth";
+import { useAddress } from "@/lib/hooks";
 
 export const getStaticProps = async () => {
   let token = await pesapalAuth();
@@ -86,22 +87,26 @@ const Checkout: FC<CheckoutProps> = ({ authToken }) => {
         <title>Checkout | Autism Lifestyle</title>
       </Head>
       <Navbar />
-      <main className="font-josefin-sans">
+      <main className="font-inter">
         <div className="px-5 lg:mx-40 py-10 lg:py-20">
-          <h1 className="text-5xl font-medium">Checkout</h1>
+          <h1 className="text-5xl font-medium font-josefin-sans">Checkout</h1>
           {cart && cart.items.length ? (
             <div className="flex justify-between mt-5 items-start flex-wrap gap-y-8">
               <div className="basis-full lg:basis-7/12 flex flex-col gap-y-8">
                 <div className="flex flex-col gap-y-8">
-                  <div className="flex gap-x-4">
-                    <h2 className="text-3xl">Billing Details</h2>
-                    <button
-                      type="button"
-                      className="text-blue text-lg font-bold underline underline-offset-4"
-                      onClick={() => setEditAddress((prevState) => !prevState)}
-                    >
-                      Edit
-                    </button>
+                  <div className="flex gap-x-4 justify-between">
+                    <h2 className="text-3xl">Billing Address</h2>
+                    {Object.keys(address).length > 0 && (
+                      <button
+                        type="button"
+                        className="text-blue text-lg font-bold underline underline-offset-4"
+                        onClick={() =>
+                          setEditAddress((prevState) => !prevState)
+                        }
+                      >
+                        Edit
+                      </button>
+                    )}
                   </div>
 
                   <AddressInfo editAddress={editAddress} />

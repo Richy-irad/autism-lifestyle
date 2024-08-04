@@ -17,6 +17,7 @@ const navigation = [
   { name: "Services", href: "/services" },
   { name: "About", href: "/about" },
   { name: "Contact", href: "/contact" },
+  { name: "Blog", href: "/blog" },
 ];
 
 function classNames(...classes: string[]) {
@@ -52,7 +53,7 @@ const CustomLink = ({ children, href }: CustomLinkProps) => {
 export default function Navbar() {
   const cart = useContext(CartContext);
   return (
-    <Disclosure as="nav" className="bg-white font-josefin-sans">
+    <Disclosure as="nav" className="bg-white font-inter">
       {({ open }) => (
         <>
           <div className="px-5 lg:px-0 py-6 lg:mx-40">
@@ -70,7 +71,10 @@ export default function Navbar() {
               </div>
               <div className="flex items-center justify-between w-full">
                 <div className="flex-shrink-0">
-                  <Link href="/" className="font-bold text-2xl flex gap-2">
+                  <Link
+                    href="/"
+                    className="font-josefin-sans font-bold text-2xl flex gap-2"
+                  >
                     <span className="text-primary capitalize">autism</span>
                     <span className="text-monte capitalize">lifestyle</span>
                   </Link>
