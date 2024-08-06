@@ -139,7 +139,7 @@ const Service: FC<ServiceProps> = ({ service }): JSX.Element => {
             <div className="flex flex-col gap-2 text-center">
               <button
                 type="button"
-                className="text-primary font-semibold px-4 py-5 border-2 border-primary rounded-md"
+                className="bg-primary text-dark font-semibold px-4 py-5 rounded-md"
                 onClick={() => handleAddToCart(service, 1)}
               >
                 Add Package to Cart
@@ -147,7 +147,7 @@ const Service: FC<ServiceProps> = ({ service }): JSX.Element => {
 
               <Link
                 href="/services"
-                className="bg-primary text-dark font-semibold px-4 py-5 rounded-md"
+                className="text-primary font-semibold px-4 py-5 border-2 border-primary rounded-md"
               >
                 Browse our Services
               </Link>
