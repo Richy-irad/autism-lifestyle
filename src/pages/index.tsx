@@ -8,6 +8,7 @@ import ContactForm from "@/components/contactForm";
 import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
 import Service from "@/components/package";
+import Topbar from "@/components/topbar";
 
 export const getStaticProps = async () => {
   const query = `*[_type == 'service']{
@@ -44,6 +45,7 @@ const Home: FC<IndexProps> = ({ packages }) => {
         <meta property="og:title" content="Autism Lifestle" />
         <meta property="og:type" content="website" />
       </Head>
+      <Topbar />
       <Navbar />
       <main className="font-inter">
         {/* hero section */}

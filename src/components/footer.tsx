@@ -27,10 +27,14 @@ export default function Footer() {
           </div>
           {/* socials */}
           <div className="flex gap-x-6 items-center mt-4 lg:mt-0">
-            <Link href="#" className="text-dark hover:text-primary">
+            {/* <Link href="#" className="text-dark hover:text-primary">
               <FacebookLogo size={32} />
-            </Link>
-            <Link href="#" className="text-dark hover:text-primary">
+            </Link> */}
+            <Link
+              href="https://www.instagram.com/auti_smlifestyle/"
+              target="_blank"
+              className="text-dark hover:text-primary"
+            >
               <InstagramLogo size={32} />
             </Link>
           </div>
