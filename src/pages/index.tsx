@@ -1,8 +1,6 @@
 import React, { FC } from "react";
 import Head from "next/head";
-import Image from "next/image";
 import Link from "next/link";
-import heroImage from "../../public/assets/cdc-20YP7NENJzk-unsplash.jpg";
 import { IndexProps } from "@/lib/types";
 import { client } from "../../sanity/lib/client";
 
@@ -49,7 +47,7 @@ const Home: FC<IndexProps> = ({ packages }) => {
       <Navbar />
       <main className="font-inter">
         {/* hero section */}
-        <div className="bg-hero-image bg-cover">
+        <div className="bg-hero-image bg-secondary bg-blend-soft-light bg-cover">
           <div className="flex gap-x-16 items-center pt-16 h-[400px]  lg:mx-40 lg:h-[698px] pb-16 lg:pb-32">
             <div className="basis-full lg:basis-1/2 flex flex-col gap-y-11 items-center lg:items-start px-5">
               <div className="flex flex-col gap-y-5 text-white">
