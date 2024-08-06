@@ -3,6 +3,7 @@ import Head from "next/head";
 import Link from "next/link";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
+import Topbar from "@/components/topbar";
 import { CaretRight, Minus, Plus, Trash } from "@phosphor-icons/react";
 import { CartContext, CartDispatchContext } from "@/lib/contexts/CartContext";
 import { CartActions, CartItemExcerptProps } from "@/lib/types";
@@ -163,6 +164,7 @@ const Cart = () => {
       <Head>
         <title>Cart | Autism Lifestyle</title>
       </Head>
+      <Topbar />
       <Navbar />
       <main className="font-inter">
         <div className="bg-white">

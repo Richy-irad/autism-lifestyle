@@ -74,7 +74,7 @@ const Home: FC<IndexProps> = ({ packages }) => {
 
         {/* services section */}
         <div className="bg-concrete">
-          <div className="flex gap-y-12 lg:gap-x-32 items-start px-5 lg:mx-40 py-20 flex-wrap lg:flex-nowrap">
+          <div className="flex gap-y-12 lg:gap-x-12 xl:gap-x-18 2xl:gap-x-32 items-start px-5 lg:mx-40 py-20 flex-wrap lg:flex-nowrap">
             <div className="basis-full lg:basis-5/12">
               <div className="flex flex-col gap-y-3 lg:gap-y-8 w-10/12 lg:w-96 items-center lg:items-start mx-auto text-center lg:text-start">
                 <h1 className="font-josefin-sans text-3xl md:text-4xl lg:text-6xl font-bold">

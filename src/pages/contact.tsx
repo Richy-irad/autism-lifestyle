@@ -2,6 +2,7 @@ import Link from "next/link";
 import Head from "next/head";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
+import Topbar from "@/components/topbar";
 import ContactForm from "@/components/contactForm";
 
 const Contact = () => {
@@ -20,6 +21,7 @@ const Contact = () => {
         <meta property="og:title" content="Contact Us | Autism Lifestyle" />
         <meta property="og:type" content="website" />
       </Head>
+      <Topbar />
       <Navbar />
       <main className="font-inter">
         <div className="bg-white">

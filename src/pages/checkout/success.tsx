@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ParsedUrlQuery } from "querystring";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
+import Topbar from "@/components/topbar";
 
 import { DownloadSimple } from "@phosphor-icons/react";
 import { GetServerSideProps } from "next";
@@ -72,6 +73,7 @@ const Success: FC<SuccessProps> = ({ order }): JSX.Element => {
       <Head>
         <title>Checkout Success | Autism Lifestyle</title>
       </Head>
+      <Topbar />
       <Navbar />
       <main className="font-inter">
         <div className="px-5 lg:mx-40 py-20">

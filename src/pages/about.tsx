@@ -2,6 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
+import Topbar from "@/components/topbar";
 import { MapPin } from "@phosphor-icons/react";
 
 import aboutImage from "../../public/brenda.jpeg";
@@ -22,6 +23,7 @@ const About = () => {
         <meta property="og:title" content="About Us | Autism Lifestyle" />
         <meta property="og:type" content="website" />
       </Head>
+      <Topbar />
       <Navbar />
       <main className="font-inter">
         <div className="flex">

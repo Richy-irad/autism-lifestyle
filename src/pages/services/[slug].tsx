@@ -5,6 +5,7 @@ import { GetStaticProps } from "next";
 import { CartActions, PackageType, ServiceProps } from "@/lib/types";
 import { ParsedUrlQuery } from "querystring";
 import Navbar from "@/components/navbar";
+import Topbar from "@/components/topbar";
 import Footer from "@/components/footer";
 
 import { CartDispatchContext } from "@/lib/contexts/CartContext";
@@ -92,6 +93,7 @@ const Service: FC<ServiceProps> = ({ service }): JSX.Element => {
         <meta property="og:title" content={service.service} />
         <meta property="og:type" content="website" />
       </Head>
+      <Topbar />
       <Navbar />
 
       <main className="font-inter">

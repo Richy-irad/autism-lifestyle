@@ -4,6 +4,7 @@ import Link from "next/link";
 import { v4 as uuidV4 } from "uuid";
 import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
+import Topbar from "@/components/topbar";
 
 import { CartContext } from "@/lib/contexts/CartContext";
 import AddressInfo from "@/components/AddressInfo";
@@ -86,6 +87,7 @@ const Checkout: FC<CheckoutProps> = ({ authToken }) => {
       <Head>
         <title>Checkout | Autism Lifestyle</title>
       </Head>
+      <Topbar />
       <Navbar />
       <main className="font-inter">
         <div className="px-5 lg:mx-40 py-10 lg:py-20">

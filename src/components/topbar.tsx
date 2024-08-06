@@ -44,7 +44,7 @@ const Topbar = () => {
       {/* the contacts */}
       <div className="flex gap-x-8">
         {contacts.map((contact, index) => (
-          <div className="flex gap-x-2 items-center">
+          <div key={index} className="flex gap-x-2 items-center">
             {contact.icon}
             {contact.text}
           </div>
@@ -55,7 +55,7 @@ const Topbar = () => {
       <div className="flex gap-x-4 justify-end">
         <div className="flex gap-x-4">
           {socials.map((social, index) => (
-            <div className="flex gap-x-2 items-center">
+            <div key={index} className="flex gap-x-2 items-center">
               {social.icon}
               {social.href && (
                 <Link href={social.href} target="_blank">
