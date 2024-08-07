@@ -9,7 +9,7 @@ module.exports = {
     extend: {
       colors: {
         primary: "#FF8E3C",
-        secondary: "#D9376E",
+        secondary: "#654321",
         dark: "#2A2A2A",
         black: "#0D0D0D",
         blue: "#00BBFF",
@@ -20,12 +20,16 @@ module.exports = {
       },
       fontFamily: {
         "josefin-sans": "var(--font-josefin-sans)",
+        inter: "var(--font-inter)",
       },
       borderWidth: {
         0.5: "0.5px",
       },
       padding: {
         18: "72px",
+      },
+      backgroundImage: {
+        "hero-image": "url(/assets/cdc-20YP7NENJzk-unsplash.jpg)",
       },
     },
   },

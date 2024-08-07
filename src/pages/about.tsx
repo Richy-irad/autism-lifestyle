@@ -2,6 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
+import Topbar from "@/components/topbar";
 import { MapPin } from "@phosphor-icons/react";
 
 import aboutImage from "../../public/brenda.jpeg";
@@ -22,8 +23,9 @@ const About = () => {
         <meta property="og:title" content="About Us | Autism Lifestyle" />
         <meta property="og:type" content="website" />
       </Head>
+      <Topbar />
       <Navbar />
-      <main className="font-josefin-sans">
+      <main className="font-inter">
         <div className="flex">
           <div className="basis-full mx-5 py-10 lg:py-10 lg:basis-8/12 lg:mx-auto flex flex-col">
             {/* The quote */}
@@ -50,8 +52,10 @@ const About = () => {
                   />
                   <p className="font-regular text-lg">
                     Brenda Kawira &#45;{" "}
-                    <span className="text-primary capitalize">Autism </span>
-                    <span className="text-monte capitalize">
+                    <span className="font-josefin-sans text-primary capitalize">
+                      Autism{" "}
+                    </span>
+                    <span className="font-josefin-sans text-monte capitalize">
                       Lifestyle
                     </span>{" "}
                     Educator
@@ -59,14 +63,14 @@ const About = () => {
                 </div>
               </div>
             </div>
-            <h2 className="text-2xl lg:text-6xl font-bold text-dark py-4 lg:py-16">
+            <h2 className="font-josefin-sans text-2xl lg:text-6xl font-bold text-dark py-4 lg:py-16">
               Resume
             </h2>
 
             {/* work experience */}
             <div className="flex flex-col lg:flex-row gap-8 lg:justify-between border-b-0.5 border-light py-4 lg:py-16">
               <div className="basis-full lg:basis-1/4 lg:shrink-0">
-                <h3 className="text-xl lg:text-5xl font-bold capitalize">
+                <h3 className="font-josefin-sans text-xl lg:text-5xl font-bold capitalize">
                   work experience
                 </h3>
               </div>
@@ -155,7 +159,7 @@ const About = () => {
             {/* education */}
             <div className="flex flex-col lg:flex-row gap-8 lg:justify-between border-b-0.5 border-light py-4 lg:py-16">
               <div className="basis-full lg:basis-1/4 lg:shrink-0">
-                <h3 className="text-xl lg:text-5xl font-bold capitalize">
+                <h3 className="font-josefin-sans text-xl lg:text-5xl font-bold capitalize">
                   Education
                 </h3>
               </div>
@@ -205,7 +209,7 @@ const About = () => {
             {/* skills and expertise */}
             <div className="flex flex-col lg:flex-row gap-4 lg:gap-8 lg:justify-between py-4 lg:py-16">
               <div className="basis-full lg:basis-1/4 lg:shrink-0">
-                <h3 className="text-xl lg:text-5xl font-bold capitalize">
+                <h3 className="font-josefin-sans text-xl lg:text-5xl font-bold capitalize">
                   Skills &#38; Expertise
                 </h3>
               </div>

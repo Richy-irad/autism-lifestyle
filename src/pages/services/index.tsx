@@ -2,6 +2,7 @@ import React, { FC } from "react";
 import Head from "next/head";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
+import Topbar from "@/components/topbar";
 import { ServicesProps } from "@/lib/types";
 
 import Service from "@/components/package";
@@ -43,16 +44,17 @@ const Services: FC<ServicesProps> = ({ packages }): JSX.Element => {
         <meta property="og:title" content="Services | Autism Lifestyle" />
         <meta property="og:type" content="website" />
       </Head>
+      <Topbar />
       <Navbar />
-      <main className="font-josefin-sans">
+      <main className="font-inter">
         {/* services section */}
-        <div className="flex gap-y-12 lg:gap-x-32 items-start px-5 lg:mx-40 py-10 lg:py-20 flex-wrap lg:flex-nowrap">
+        <div className="flex gap-y-12 lg:gap-x-12 xl:gap-x-18 2xl:gap-x-32 items-start px-5 lg:mx-40 py-10 lg:py-20 flex-wrap lg:flex-nowrap">
           <div className="basis-full lg:basis-5/12">
             <div className="flex flex-col gap-y-3 lg:gap-y-8 w-10/12 lg:w-96 items-center lg:items-start mx-auto text-center lg:text-start">
-              <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold">
+              <h1 className="font-josefin-sans text-3xl md:text-4xl lg:text-6xl font-bold">
                 Our Services
               </h1>
-              <p className="text-dark font-lg">
+              <p className="text-dark text-lg">
                 Empowering Individuals with Autism: Discover Our Comprehensive
                 Lifestyle Services and Packages!
               </p>
