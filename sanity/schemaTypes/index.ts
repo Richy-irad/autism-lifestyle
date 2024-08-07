@@ -1,8 +1,8 @@
 import { type SchemaTypeDefinition } from "sanity";
 
-import service from "./schemaTypes/servicevice";
-import benefit from "./schemaTypes/benefitefit";
-import order from "./schemaTypes/orderrder";
+import service from "./service";
+import benefit from "./benefit";
+import order from "./order";
 
 export const schemaTypes: { types: SchemaTypeDefinition[] } = {
   types: [service, benefit, order],
