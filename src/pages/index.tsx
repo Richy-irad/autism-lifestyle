@@ -1,14 +1,15 @@
 import React, { FC } from "react";
 import Head from "next/head";
 import Link from "next/link";
+import Image from "next/image";
 import { IndexProps } from "@/lib/types";
 import { client } from "../../sanity/lib/client";
-
 import ContactForm from "@/components/contactForm";
 import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
 import Service from "@/components/package";
 import Topbar from "@/components/topbar";
+import aboutImage from "../../public/brenda.jpeg";
 
 export const getStaticProps = async () => {
   const query = `*[_type == 'service']{
@@ -50,7 +51,7 @@ const Home: FC<IndexProps> = ({ packages }) => {
       <main className="font-inter">
         {/* hero section */}
         <div className="bg-hero-image bg-secondary bg-blend-soft-light bg-cover">
-          <div className="flex gap-x-16 items-center pt-16 h-[400px]  lg:mx-40 lg:h-[698px] pb-16 lg:pb-32">
+          <div className="flex gap-x-16 items-center pt-16 h-[400px] lg:mx-40 lg:h-[698px] pb-16 lg:pb-32">
             <div className="basis-full lg:basis-1/2 flex flex-col gap-y-11 items-center lg:items-start px-5">
               <div className="flex flex-col gap-y-5 text-white">
                 <h1 className="font-josefin-sans text-3xl md:text-4xl lg:text-6xl font-bold text-center lg:text-start">
@@ -72,35 +73,57 @@ const Home: FC<IndexProps> = ({ packages }) => {
           </div>
         </div>
 
-        {/* services section */}
+        {/* about section */}
         <div className="bg-concrete">
-          <div className="flex gap-y-12 lg:gap-x-12 xl:gap-x-18 2xl:gap-x-32 items-start px-5 lg:mx-40 py-20 flex-wrap lg:flex-nowrap">
+          <div className="flex gap-y-12 lg:gap-x-12 xl:gap-x-18 2xl:gap-x-32 items-center lg:items-start px-5 lg:mx-40 py-20 flex-wrap lg:flex-nowrap">
             <div className="basis-full lg:basis-5/12">
               <div className="flex flex-col gap-y-3 lg:gap-y-8 w-10/12 lg:w-96 items-center lg:items-start mx-auto text-center lg:text-start">
                 <h1 className="font-josefin-sans text-3xl md:text-4xl lg:text-6xl font-bold">
-                  Our Services
+                  About us
                 </h1>
                 <p className="text-dark text-lg">
-                  Empowering Individuals with Autism: Discover Our Comprehensive
-                  Lifestyle Services and Packages!
+                  Autism Lifestyle supports children with autism and their
+                  families through personalized services. Our experienced team
+                  helps children thrive by promoting development, independence,
+                  and confidence in a nurturing environment.
+                </p>
+                <Link
+                  href="/about"
+                  className="bg-primary text-dark font-semibold px-4 py-5 rounded-md hidden lg:flex"
+                >
+                  Learn more
+                </Link>
+              </div>
+            </div>
+            {/* vision and mission */}
+            <div className="basis-full lg:basis-7/12 flex flex-col gap-y-12 items-center lg:items-start">
+              <div className="flex flex-col gap-y-6 w-full items-center lg:items-start">
+                <h2 className="font-josefin-sans text-xl md:text-2xl lg:text-4xl font-bold">
+                  Vision
+                </h2>
+                <p className="text-center lg:text-start">
+                  To create a world where every child with autism is empowered
+                  to reach their full potential, thriving in an inclusive and
+                  supportive environment.
+                </p>
+              </div>
+              <div className="flex flex-col gap-y-6 w-full items-center lg:items-start">
+                <h2 className="font-josefin-sans text-xl md:text-2xl lg:text-4xl font-bold">
+                  Mission
+                </h2>
+                <p className="text-center lg:text-start">
+                  To provide personalized, comprehensive services and resources
+                  for children with autism and their families, fostering
+                  development, independence, and a higher quality of life.
                 </p>
               </div>
             </div>
-            <div className="basis-full lg:basis-7/12 flex flex-col gap-y-12 items-center lg:items-start">
-              {packages.map((service) => (
-                <Service
-                  key={service.service}
-                  service={service}
-                  background="white"
-                />
-              ))}
-              <Link
-                href="/services"
-                className="bg-primary text-dark font-semibold px-4 py-5 rounded-md"
-              >
-                View all Services
-              </Link>
-            </div>
+            <Link
+              href="/about"
+              className="bg-primary text-dark font-semibold px-4 py-5 rounded-md flex lg:hidden"
+            >
+              Learn more
+            </Link>
           </div>
         </div>
 

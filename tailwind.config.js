@@ -30,6 +30,7 @@ module.exports = {
       },
       backgroundImage: {
         "hero-image": "url(/assets/cdc-20YP7NENJzk-unsplash.jpg)",
+        "kids-image": "url(/assets/cole-keister-rPlYtGgoxho-unsplash.jpg)",
       },
     },
   },
