@@ -1,5 +1,10 @@
 import Link from "next/link";
-import { InstagramLogo, FacebookLogo, Copyright } from "@phosphor-icons/react";
+import {
+  InstagramLogo,
+  FacebookLogo,
+  Copyright,
+  TiktokLogo,
+} from "@phosphor-icons/react";
 
 const navigation = [
   { name: "Home", href: "/" },
@@ -36,6 +41,20 @@ export default function Footer() {
               className="text-dark hover:text-primary"
             >
               <InstagramLogo size={32} />
+            </Link>
+            <Link
+              href="https://www.facebook.com/share/WRHFbmmaLq12UqTS/?mibextid=LQQJ4d"
+              target="_blank"
+              className="text-dark hover:text-primary"
+            >
+              <FacebookLogo size={32} />
+            </Link>
+            <Link
+              href="https://www.tiktok.com/@brenda.eringo?_t=8p5orSvwtyX&_r=1"
+              target="_blank"
+              className="text-dark hover:text-primary"
+            >
+              <TiktokLogo size={32} />
             </Link>
           </div>
         </div>

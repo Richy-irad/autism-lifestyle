@@ -8,6 +8,7 @@ import {
   MapPin,
   InstagramLogo,
   FacebookLogo,
+  TiktokLogo,
 } from "@phosphor-icons/react";
 
 const contacts = [
@@ -31,11 +32,16 @@ const socials = [
     text: "auti_smlifestyle",
     href: "https://www.instagram.com/auti_smlifestyle/",
   },
-  // {
-  //   icon: <FacebookLogo size={20} weight="bold" />,
-  //   text: "+254 724 235049",
-  //   href: "",
-  // },
+  {
+    icon: <FacebookLogo size={20} weight="bold" />,
+    text: "Autism-Lifestyle",
+    href: "https://www.facebook.com/share/WRHFbmmaLq12UqTS/?mibextid=LQQJ4d",
+  },
+  {
+    icon: <TiktokLogo size={20} weight="bold" />,
+    text: "@brenda.eringo",
+    href: "https://www.tiktok.com/@brenda.eringo?_t=8p5orSvwtyX&_r=1",
+  },
 ];
 
 const Topbar = () => {
